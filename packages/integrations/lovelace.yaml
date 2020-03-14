@@ -1,0 +1,6 @@
+#
+# Lovelace Config
+#
+
+lovelace:
+  mode: yaml

@@ -1,0 +1,14 @@
+#
+# AndroidTV Integration
+#
+
+media_player:
+  - platform: androidtv
+    name: FireTV
+    host: !secret firetv_host
+    exclude_unnamed_apps: true
+    apps:
+      com.amazon.tv.launcher: Home
+      com.mxtech.videoplayer.pro: MXPlayer
+      com.amazon.firetv.youtube: Youtube
+      tv.abema: AbemaTV

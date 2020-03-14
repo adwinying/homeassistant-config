@@ -1,0 +1,13 @@
+.cloud/*
+.storage/*
+smartir/*
+tts/*
+www/images/*
+
+.HA_VERSION
+.homekit.state
+home-assistant.log
+home-assistant_v2.db
+secrets.yaml
+
+packages/integrations/person.yaml

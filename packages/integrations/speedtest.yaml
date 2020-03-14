@@ -1,0 +1,10 @@
+#
+# Speedtest.net integration
+#
+
+speedtestdotnet:
+  scan_interval: 00:30:00
+  monitored_conditions:
+    - ping
+    - download
+    - upload

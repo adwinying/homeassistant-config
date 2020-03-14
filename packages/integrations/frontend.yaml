@@ -1,0 +1,20 @@
+#
+# Frontend - HTML UI
+#
+
+frontend:
+  javascript_version: latest
+  themes: !include_dir_merge_named /config/themes
+
+#
+# Set theme at startup
+#
+automation:
+  - alias: "Set theme at startup"
+    trigger:
+      - platform: homeassistant
+        event: start
+    action:
+      service: frontend.set_theme
+      data:
+        name: slate

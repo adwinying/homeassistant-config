@@ -1,0 +1,18 @@
+#
+# Homekit Integration
+#
+
+homekit:
+  filter:
+    include_entities:
+      - light.room_light
+      - light.room_night_light
+      - climate.room_ac
+      - media_player.room_tv
+  entity_config:
+    media_player.room_tv:
+      feature_list:
+        - feature: on_off
+        - feature: play_pause
+        - feature: play_stop
+        - feature: toggle_mute

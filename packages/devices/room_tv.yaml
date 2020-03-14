@@ -1,0 +1,65 @@
+#
+# Room TV
+#
+
+media_player:
+  - platform: smartir
+    name: Room TV Device
+    unique_id: room_tv_device
+    device_code: 8888
+    controller_data: cmnd/IR_Bridge/IRSEND
+
+#
+# Additional Features via scripts
+#
+  - platform: universal
+    name: Room TV
+    retain: true
+    children:
+      - media_player.room_tv_device
+    commands:
+      turn_on:
+        service: media_player.turn_on
+        data:
+          entity_id: media_player.room_tv_device
+      turn_off:
+        service: media_player.turn_off
+        data:
+          entity_id: media_player.room_tv_device
+      volume_up:
+        service: media_player.volume_up
+        data:
+          entity_id: media_player.room_tv_device
+      volume_down:
+        service: media_player.volume_down
+        data:
+          entity_id: media_player.room_tv_device
+      volume_mute:
+        service: media_player.volume_mute
+        data:
+          entity_id: media_player.room_tv_device
+      select_source:
+        service: python_script.tv_change_source
+        data_template:
+          source: '{{ source }}'
+    attributes:
+      state: media_player.room_tv_device
+      source: sensor.room_tv_source
+      source_list: media_player.room_tv_device|source_list
+
+#
+# Set Media Player as TV
+#
+homeassistant:
+  customize:
+    media_player.room_tv:
+      device_class: tv
+
+#
+# Preserve source input
+#
+sensor:
+  - name: Room TV Source
+    platform: mqtt
+    state_topic: homeassistant/media_player/room_tv
+    value_template: "{{ value_json.source }}"

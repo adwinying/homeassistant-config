@@ -1,0 +1,85 @@
+path: overview
+title: Overview
+icon: mdi:home-assistant
+
+badges:
+  - entity: person.adwin
+  - entity: person.ws
+
+cards:
+  - type: weather-forecast
+    name: Home
+    entity: weather.dark_sky
+
+
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: Network
+        show_header_toggle: false
+        entities:
+          - type: weblink
+            name: Router
+            url: http://192.168.1.1
+            icon: 'mdi:router-wireless'
+
+          - type: weblink
+            name: Traefik
+            url: https://traefik.iadw.in
+            icon: 'mdi:wan'
+
+          - type: weblink
+            name: Cockpit
+            url: https://cockpit.iadw.in
+            icon: 'mdi:console'
+
+
+      - type: entities
+        title: Media
+        show_header_toggle: false
+        entities:
+          - type: weblink
+            name: Plex
+            url: https://plex.tv/web
+            icon: mdi:plex
+
+          - type: weblink
+            name: Sonarr
+            url: https://sonarr.iadw.in
+            icon: mdi:television-classic
+
+          - type: weblink
+            name: Radarr
+            url: https://radarr.iadw.in
+            icon: mdi:filmstrip
+
+          - type: weblink
+            name: Jackett
+            url: https://jackett.iadw.in
+
+          - type: weblink
+            name: Transmission
+            url: https://transmission.iadw.in
+            icon: mdi:download
+
+
+  - type: entities
+    title: Speedtest
+    show_header_toggle: false
+    entities:
+      - entity: sensor.speedtest_ping
+        name: Ping
+      - entity: sensor.speedtest_upload
+        name: Upload
+      - entity: sensor.speedtest_download
+        name: Download
+
+
+  - type: entities
+    title: Mobile App
+    show_header_toggle: false
+    entities:
+      - entity: sensor.iadwin_last_update_trigger
+        name: Last Update Trigger (A)
+      - entity: sensor.sws_last_update_trigger
+        name: Last Update Trigger (S)

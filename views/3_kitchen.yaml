@@ -1,0 +1,8 @@
+path: kitchen
+title: Kitchen
+icon: mdi:fridge
+
+cards:
+  - type: markdown
+    content: >
+      # Coming Soon

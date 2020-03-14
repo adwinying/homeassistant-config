@@ -1,0 +1,9 @@
+title: Home
+views: !include_dir_list views
+
+custom_header:
+  compact_mode: true
+
+resources:
+  - url: /local/custom-lovelace/custom-header/custom-header.js
+    type: module 
