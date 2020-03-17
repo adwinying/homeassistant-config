@@ -4,22 +4,22 @@
 
 light:
   - platform: mqtt
-    name: "Room Light"
-    command_topic: "cmnd/IR_Bridge/IRSEND"
+    name: Room Light
+    command_topic: cmnd/IR_Bridge/IRSEND
     payload_on: '{"Protocol":"NEC","Bits":32,"Data":"0x41B645BA"}'
     payload_off: '{"Protocol":"NEC","Bits":32,"Data":"0x41B67D82"}'
     optimistic: true
 
   - platform: mqtt
-    name: "Room Brightness"
-    command_topic: "cmnd/IR_Bridge/IRSEND"
+    name: Room Brightness
+    command_topic: cmnd/IR_Bridge/IRSEND
     payload_on: '{"Protocol":"NEC","Bits":32,"Data":"0x41B65DA2"}'
     payload_off: '{"Protocol":"NEC","Bits":32,"Data":"0x41B6DD22"}'
     optimistic: true
 
   - platform: mqtt
-    name: "Room Night Light"
-    command_topic: "cmnd/IR_Bridge/IRSEND"
+    name: Room Night Light
+    command_topic: cmnd/IR_Bridge/IRSEND
     payload_on: '{"Protocol":"NEC","Bits":32,"Data":"0x41B63DC2"}'
     payload_off: '{"Protocol":"NEC","Bits":32,"Data":"0x41B67D82"}'
     optimistic: true

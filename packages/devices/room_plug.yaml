@@ -1,0 +1,18 @@
+#
+# Room Plug
+#
+
+switch:
+  - platform: mqtt
+    name: Room TV Plug
+    command_topic: cmnd/Plug_Room/POWER1
+    state_topic: stat/Plug_Room/POWER1
+    payload_on: "ON"
+    payload_off: "OFF"
+
+  - platform: mqtt
+    name: Room Console Plug
+    command_topic: cmnd/Plug_Room/POWER2
+    state_topic: stat/Plug_Room/POWER2
+    payload_on: "ON"
+    payload_off: "OFF"

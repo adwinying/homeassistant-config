@@ -4,7 +4,7 @@ icon: mdi:bed-empty
 
 cards:
   - type: entities
-    title: Room Lights
+    title: Lights
     show_header_toggle: false
     entities:
       - light.room_light
@@ -23,3 +23,11 @@ cards:
 
   - type: media-control
     entity: media_player.firetv
+
+
+  - type: entities
+    title: Plugs
+    show_header_toggle: true
+    entities:
+      - switch.room_tv_plug
+      - switch.room_console_plug

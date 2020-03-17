@@ -7,6 +7,9 @@ homekit:
     include_entities:
       - light.room_light
       - light.room_night_light
+      - switch.room_console_plug
+      - switch.kitchen_rice_cooker_plug
+      - switch.kitchen_heaters_plug
       - climate.room_ac
       - media_player.room_tv
   entity_config:

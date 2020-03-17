@@ -3,6 +3,9 @@ title: Kitchen
 icon: mdi:fridge
 
 cards:
-  - type: markdown
-    content: >
-      # Coming Soon
+  - type: entities
+    title: Plugs
+    show_header_toggle: true
+    entities:
+      - switch.kitchen_rice_cooker_plug
+      - switch.kitchen_heaters_plug

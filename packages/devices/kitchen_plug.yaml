@@ -1,0 +1,18 @@
+#
+# Kitchen Plug
+#
+
+switch:
+  - platform: mqtt
+    name: Kitchen Rice Cooker Plug
+    command_topic: cmnd/Plug_Kitchen/POWER1
+    state_topic: stat/Plug_Kitchen/POWER1
+    payload_on: "ON"
+    payload_off: "OFF"
+
+  - platform: mqtt
+    name: Kitchen Heaters Plug
+    command_topic: cmnd/Plug_Kitchen/POWER2
+    state_topic: stat/Plug_Kitchen/POWER2
+    payload_on: "ON"
+    payload_off: "OFF"
