@@ -5,14 +5,29 @@
 switch:
   - platform: mqtt
     name: Room TV Plug
-    command_topic: cmnd/Plug_Room/POWER1
-    state_topic: stat/Plug_Room/POWER1
+    command_topic: cmnd/Plug_Room/POWER2
+    state_topic: stat/Plug_Room/POWER2
     payload_on: "ON"
     payload_off: "OFF"
 
   - platform: mqtt
     name: Room Console Plug
-    command_topic: cmnd/Plug_Room/POWER2
-    state_topic: stat/Plug_Room/POWER2
+    command_topic: cmnd/Plug_Room/POWER1
+    state_topic: stat/Plug_Room/POWER1
     payload_on: "ON"
     payload_off: "OFF"
+
+#
+# Set TV State to Off when switch is turned off
+#
+automation:
+  - alias: Set TV state to Off when switch is turned off
+    trigger:
+      platform: state
+      entity_id: switch.room_tv_plug
+      from: "on"
+      to: "off"
+    action:
+      service: media_player.turn_off
+      data:
+        entity_id: media_player.room_tv_device

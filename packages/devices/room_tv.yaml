@@ -19,13 +19,11 @@ media_player:
       - media_player.room_tv_device
     commands:
       turn_on:
-        service: media_player.turn_on
-        data:
-          entity_id: media_player.room_tv_device
+        service: script.tv_turn_on
       turn_off:
-        service: media_player.turn_off
+        service: switch.turn_off
         data:
-          entity_id: media_player.room_tv_device
+          entity_id: switch.room_tv_plug
       volume_up:
         service: media_player.volume_up
         data:
@@ -63,3 +61,18 @@ sensor:
     platform: mqtt
     state_topic: homeassistant/media_player/room_tv
     value_template: "{{ value_json.source }}"
+
+#
+# TV Switch On Combo
+#
+script:
+  tv_turn_on:
+    sequence:
+      - service: switch.turn_on
+        data:
+          entity_id: switch.room_tv_plug
+      - delay:
+          seconds: 10
+      - service: media_player.turn_on
+        data:
+          entity_id: media_player.room_tv_device
