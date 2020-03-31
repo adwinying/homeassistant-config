@@ -7,5 +7,9 @@ cards:
     title: Plugs
     show_header_toggle: true
     entities:
+      - sensor.kitchen_plug_power
+      - sensor.kitchen_plug_energy_today
+      - sensor.kitchen_plug_energy_yesterday
+      - sensor.kitchen_plug_energy_total
       - switch.kitchen_rice_cooker_plug
       - switch.kitchen_heaters_plug
