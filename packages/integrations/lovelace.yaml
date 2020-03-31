@@ -4,3 +4,6 @@
 
 lovelace:
   mode: yaml
+  resources:
+    - url: /local/custom-lovelace/custom-header/custom-header.js
+      type: module
