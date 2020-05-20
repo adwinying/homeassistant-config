@@ -7,3 +7,5 @@ climate:
     name: Room AC
     device_code: 8888
     controller_data: cmnd/IR_Bridge/IRHVAC
+    temperature_sensor: sensor.room_temperature
+    humidity_sensor: sensor.room_humidity
