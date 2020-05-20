@@ -35,3 +35,12 @@ cards:
       - sensor.room_plug_energy_total
       - switch.room_tv_plug
       - switch.room_console_plug
+
+
+  - type: entities
+    title: Sensors
+    entities:
+      - sensor.room_temperature
+      - sensor.room_humidity
+      - sensor.room_dew_point
+      - sensor.room_pressure
