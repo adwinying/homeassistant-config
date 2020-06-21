@@ -7,6 +7,9 @@ homekit:
     include_entities:
       - light.bedroom_light
       - light.bedroom_night_light
+      - light.room_white_light
+      - light.room_yellow_light
+      - light.room_night_light
       - switch.room_console_plug
       - switch.kitchen_rice_cooker_plug
       - switch.kitchen_heaters_plug
