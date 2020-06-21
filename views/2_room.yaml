@@ -4,12 +4,12 @@ icon: mdi:bed-empty
 
 cards:
   - type: entities
-    title: Lights
+    title: Bedroom Lights
     show_header_toggle: false
     entities:
-      - light.room_light
-      - light.room_brightness
-      - light.room_night_light
+      - light.bedroom_light
+      - light.bedroom_brightness
+      - light.bedroom_night_light
 
 
   - type: media-control

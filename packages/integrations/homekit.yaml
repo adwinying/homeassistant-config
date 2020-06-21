@@ -5,8 +5,8 @@
 homekit:
   filter:
     include_entities:
-      - light.room_light
-      - light.room_night_light
+      - light.bedroom_light
+      - light.bedroom_night_light
       - switch.room_console_plug
       - switch.kitchen_rice_cooker_plug
       - switch.kitchen_heaters_plug
