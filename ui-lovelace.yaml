@@ -1,5 +1,2 @@
 title: Home
 views: !include_dir_list views
-
-custom_header:
-  compact_mode: true
