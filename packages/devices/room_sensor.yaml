@@ -23,3 +23,12 @@ sensor:
     state_topic: tele/Sensor_Room/SENSOR
     value_template: '{{ value_json["BME280"]["Pressure"] }}'
     unit_of_measurement: hPa
+
+
+#
+# Let homekit recognize humidity sensor
+#
+homeassistant:
+  customize:
+    sensor.room_humidity:
+      device_class: humidity

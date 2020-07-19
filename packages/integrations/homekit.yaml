@@ -13,6 +13,9 @@ homekit:
       - switch.room_console_plug
       - switch.kitchen_rice_cooker_plug
       - switch.kitchen_heaters_plug
+      - sensor.room_temperature
+      - sensor.room_dew_point
+      - sensor.room_humidity
       - climate.room_ac
       - media_player.room_tv
   entity_config:
