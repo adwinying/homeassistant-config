@@ -45,6 +45,7 @@ cards:
       - sensor.room_plug_energy_total
       - switch.room_tv_plug
       - switch.room_console_plug
+      - switch.room_counter_plug
 
 
   - type: entities
