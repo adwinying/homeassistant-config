@@ -11,6 +11,7 @@ homekit:
       - light.room_yellow_light
       - light.room_night_light
       - switch.room_console_plug
+      - switch.room_counter_plug
       - switch.kitchen_rice_cooker_plug
       - switch.kitchen_heaters_plug
       - sensor.room_temperature
@@ -22,6 +23,4 @@ homekit:
     media_player.room_tv:
       feature_list:
         - feature: on_off
-        - feature: play_pause
-        - feature: play_stop
         - feature: toggle_mute
