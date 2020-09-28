@@ -4,50 +4,51 @@
 
 light:
   - platform: mqtt
-    name: Bedroom Light
-    command_topic: cmnd/IR_Bridge/IRSEND
-    payload_on: '{"Protocol":"NEC","Bits":32,"Data":"0x41B645BA"}'
-    payload_off: '{"Protocol":"NEC","Bits":32,"Data":"0x41B67D82"}'
-    optimistic: true
+    name: Bedroom Light Outer
+    command_topic: cmnd/Light_Bedroom_1/POWER
+    state_topic: tele/Light_Bedroom_1/STATE
+    state_value_template: "{{ value_json.POWER }}"
+    availability_topic: tele/Light_Bedroom_1/LWT
+    brightness_command_topic: cmnd/Light_Bedroom_1/Dimmer
+    brightness_state_topic: tele/Light_Bedroom_1/STATE
+    brightness_scale: 100
+    on_command_type: brightness
+    brightness_value_template: "{{ value_json.Dimmer }}"
+    color_temp_command_topic: cmnd/Light_Bedroom_1/CT
+    color_temp_state_topic: tele/Light_Bedroom_1/STATE
+    color_temp_value_template: "{{ value_json.CT }}"
+    rgb_command_topic: cmnd/Light_Bedroom_1/Color2
+    rgb_state_topic: tele/Light_Bedroom_1/STATE
+    rgb_value_template: "{{ value_json.Color.split(',')[0:3]|join(',') }}"
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
 
   - platform: mqtt
-    name: Bedroom Brightness
-    command_topic: cmnd/IR_Bridge/IRSEND
-    payload_on: '{"Protocol":"NEC","Bits":32,"Data":"0x41B65DA2"}'
-    payload_off: '{"Protocol":"NEC","Bits":32,"Data":"0x41B6DD22"}'
-    optimistic: true
+    name: Bedroom Light Inner
+    command_topic: cmnd/Light_Bedroom_2/POWER
+    state_topic: tele/Light_Bedroom_2/STATE
+    state_value_template: "{{ value_json.POWER }}"
+    availability_topic: tele/Light_Bedroom_2/LWT
+    brightness_command_topic: cmnd/Light_Bedroom_2/Dimmer
+    brightness_state_topic: tele/Light_Bedroom_2/STATE
+    brightness_scale: 100
+    on_command_type: brightness
+    brightness_value_template: "{{ value_json.Dimmer }}"
+    color_temp_command_topic: cmnd/Light_Bedroom_2/CT
+    color_temp_state_topic: tele/Light_Bedroom_2/STATE
+    color_temp_value_template: "{{ value_json.CT }}"
+    rgb_command_topic: cmnd/Light_Bedroom_2/Color2
+    rgb_state_topic: tele/Light_Bedroom_2/STATE
+    rgb_value_template: "{{ value_json.Color.split(',')[0:3]|join(',') }}"
+    payload_on: "ON"
+    payload_off: "OFF"
+    payload_available: "Online"
+    payload_not_available: "Offline"
 
-  - platform: mqtt
-    name: Bedroom Night Light
-    command_topic: cmnd/IR_Bridge/IRSEND
-    payload_on: '{"Protocol":"NEC","Bits":32,"Data":"0x41B63DC2"}'
-    payload_off: '{"Protocol":"NEC","Bits":32,"Data":"0x41B67D82"}'
-    optimistic: true
-
-#
-# Simulate 3-way toggle switch
-#
-automation:
-  - alias: Turn light off when night light is on
-    trigger:
-      platform: state
-      entity_id: light.bedroom_night_light
-      from: "off"
-      to: "on"
-    action:
-      service: python_script.set_state
-      data:
-        entity_id: light.bedroom_light
-        state: "off"
-
-  - alias: Turn night light off when light is on
-    trigger:
-      platform: state
-      entity_id: light.bedroom_light
-      from: "off"
-      to: "on"
-    action:
-      service: python_script.set_state
-      data:
-        entity_id: light.bedroom_night_light
-        state: "off"
+  - platform: group
+    name: Bedroom Lights
+    entities:
+      - light.bedroom_light_inner
+      - light.bedroom_light_outer

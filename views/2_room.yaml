@@ -17,10 +17,9 @@ cards:
     title: Bedroom Lights
     show_header_toggle: false
     entities:
-      - light.bedroom_light
-      - light.bedroom_brightness
-      - light.bedroom_night_light
-
+      - light.bedroom_lights
+      - light.bedroom_light_inner
+      - light.bedroom_light_outer
 
   - type: media-control
     entity: media_player.room_tv

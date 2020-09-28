@@ -5,8 +5,7 @@
 homekit:
   filter:
     include_entities:
-      - light.bedroom_light
-      - light.bedroom_night_light
+      - light.bedroom_lights
       - light.room_white_light
       - light.room_yellow_light
       - light.room_night_light
