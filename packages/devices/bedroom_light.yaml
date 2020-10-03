@@ -4,7 +4,7 @@
 
 light:
   - platform: mqtt
-    name: Bedroom Light Outer
+    name: Bedroom Light Inner
     command_topic: cmnd/Light_Bedroom_1/POWER
     state_topic: tele/Light_Bedroom_1/STATE
     state_value_template: "{{ value_json.POWER }}"
@@ -26,7 +26,7 @@ light:
     payload_not_available: "Offline"
 
   - platform: mqtt
-    name: Bedroom Light Inner
+    name: Bedroom Light Outer
     command_topic: cmnd/Light_Bedroom_2/POWER
     state_topic: tele/Light_Bedroom_2/STATE
     state_value_template: "{{ value_json.POWER }}"
