@@ -18,8 +18,20 @@ homekit:
       - sensor.room_humidity
       - climate.room_ac
       - media_player.room_tv
+      - script.toggle_fan_power
+      - script.toggle_fan_speed
+      - script.toggle_fan_oscil_horizontal
+      - script.toggle_fan_oscil_vertical
   entity_config:
     media_player.room_tv:
       feature_list:
         - feature: on_off
         - feature: toggle_mute
+    script.toggle_fan_power:
+      name: Room Fan
+    script.toggle_fan_speed:
+      name: Room Fan Speed
+    script.toggle_fan_oscil_horizontal:
+      name: Room Fan Oscillation Horizontal
+    script.toggle_fan_oscil_vertical:
+      name: Room Fan Oscillation Vertical

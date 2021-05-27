@@ -1,0 +1,49 @@
+#
+# Room fan
+#
+
+script:
+  toggle_fan_power:
+    alias: Fan Power
+    icon: mdi:power
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/IR_Bridge/IRSEND
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x06A3E01F"}'
+
+  toggle_fan_speed:
+    alias: Fan Speed
+    icon: mdi:fan-chevron-up
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/IR_Bridge/IRSEND
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x06A300FF"}'
+
+  toggle_fan_oscil_horizontal:
+    alias: Fan Oscil. Horizontal
+    icon: mdi:arrow-left-right-bold
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/IR_Bridge/IRSEND
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x06A3807F"}'
+
+  toggle_fan_oscil_vertical:
+    alias: Fan Oscil. Vertical
+    icon: mdi:arrow-up-down-bold
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/IR_Bridge/IRSEND
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x06A3A05F"}'
+
+  toggle_fan_timer:
+    alias: Fan Timer
+    icon: mdi:timer
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/IR_Bridge/IRSEND
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x06A340BF"}'

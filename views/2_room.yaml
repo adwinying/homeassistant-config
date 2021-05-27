@@ -25,6 +25,41 @@ cards:
     entity: media_player.room_tv
 
 
+  - type: grid
+    title: Fan
+    cards:
+      - type: button
+        entity: script.toggle_fan_power
+        show_name: false
+        tap_action:
+          action: call-service
+          service: script.toggle_fan_power
+      - type: button
+        entity: script.toggle_fan_speed
+        show_name: false
+        tap_action:
+          action: call-service
+          service: script.toggle_fan_speed
+      - type: button
+        entity: script.toggle_fan_oscil_horizontal
+        show_name: false
+        tap_action:
+          action: call-service
+          service: script.toggle_fan_oscil_horizontal
+      - type: button
+        entity: script.toggle_fan_oscil_vertical
+        show_name: false
+        tap_action:
+          action: call-service
+          service: script.toggle_fan_oscil_vertical
+      - type: button
+        entity: script.toggle_fan_timer
+        show_name: false
+        tap_action:
+          action: call-service
+          service: script.toggle_fan_timer
+
+
   - type: thermostat
     name: Room AC
     entity: climate.room_ac
