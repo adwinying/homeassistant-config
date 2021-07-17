@@ -21,6 +21,7 @@ cards:
       - light.bedroom_light_inner
       - light.bedroom_light_outer
 
+
   - type: media-control
     entity: media_player.room_tv
 
@@ -66,7 +67,7 @@ cards:
 
 
   - type: media-control
-    entity: media_player.firetv
+    entity: media_player.apple_tv
 
 
   - type: entities
