@@ -34,8 +34,9 @@ media_player:
           entity_id: media_player.room_tv_device
       volume_mute:
         service: media_player.volume_mute
-        data:
+        data_template:
           entity_id: media_player.room_tv_device
+          is_volume_muted: "{{ not state_attr('media_player.room_tv_device', 'is_volume_muted') }}"
       select_source:
         service: python_script.tv_change_source
         data_template:
