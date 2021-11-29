@@ -15,24 +15,23 @@ cards:
   - type: vertical-stack
     cards:
       - type: entities
-        title: Network
+        title: Services
         show_header_toggle: false
         entities:
           - type: weblink
             name: Router
-            url: http://192.168.1.1
+            url: http://router.iadw.in
             icon: 'mdi:router-wireless'
 
           - type: weblink
-            name: Traefik
-            url: https://traefik.iadw.in
-            icon: 'mdi:wan'
+            name: Transmission
+            url: https://transmission.iadw.in
+            icon: mdi:download
 
           - type: weblink
-            name: Cockpit
-            url: https://cockpit.iadw.in
-            icon: 'mdi:console'
-
+            name: Duplicati
+            url: https://duplicati.iadw.in
+            icon: mdi:cloud-upload
 
       - type: entities
         title: Media
@@ -54,13 +53,8 @@ cards:
             icon: mdi:filmstrip
 
           - type: weblink
-            name: Jackett
-            url: https://jackett.iadw.in
-
-          - type: weblink
-            name: Transmission
-            url: https://transmission.iadw.in
-            icon: mdi:download
+            name: Prowlarr
+            url: https://prowlarr.iadw.in
 
 
   - type: entities
