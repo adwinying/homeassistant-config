@@ -16,6 +16,7 @@ homekit:
       - sensor.room_temperature
       - sensor.room_dew_point
       - sensor.room_humidity
+      - sensor.room_carbon_dioxide
       - climate.room_ac
       - media_player.room_tv
       - script.toggle_fan_power

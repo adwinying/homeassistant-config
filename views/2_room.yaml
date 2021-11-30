@@ -89,4 +89,4 @@ cards:
       - sensor.room_temperature
       - sensor.room_humidity
       - sensor.room_dew_point
-      - sensor.room_pressure
+      - sensor.room_carbon_dioxide
