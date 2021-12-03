@@ -63,6 +63,9 @@ automation:
       - condition: time
         after: "09:00:00"
         before: "23:59:59"
+      - condition: state
+        entity_id: input_boolean.adwin_present
+        state: "on"
       - condition: numeric_state
         entity_id:
           - sensor.room_humidity
@@ -85,6 +88,9 @@ automation:
       - condition: time
         after: "09:00:00"
         before: "23:59:59"
+      - condition: state
+        entity_id: input_boolean.shiuan_present
+        state: "on"
       - condition: numeric_state
         entity_id:
           - sensor.room_humidity
