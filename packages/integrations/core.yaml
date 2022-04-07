@@ -21,3 +21,6 @@ logbook:
 
 # Enables configuration UI
 config:
+
+# Enables system health
+system_health:
