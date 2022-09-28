@@ -20,7 +20,8 @@ homekit:
       - climate.room_ac
       - media_player.room_tv
       - script.toggle_fan_power
-      - script.toggle_fan_speed
+      - script.toggle_fan_speed_up
+      - script.toggle_fan_speed_down
       - script.toggle_fan_oscil_horizontal
       - script.toggle_fan_oscil_vertical
       - input_boolean.adwin_present

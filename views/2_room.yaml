@@ -36,11 +36,17 @@ cards:
           action: call-service
           service: script.toggle_fan_power
       - type: button
-        entity: script.toggle_fan_speed
+        entity: script.toggle_fan_speed_up
         show_name: false
         tap_action:
           action: call-service
-          service: script.toggle_fan_speed
+          service: script.toggle_fan_speed_up
+      - type: button
+        entity: script.toggle_fan_speed_down
+        show_name: false
+        tap_action:
+          action: call-service
+          service: script.toggle_fan_speed_down
       - type: button
         entity: script.toggle_fan_oscil_horizontal
         show_name: false
@@ -53,12 +59,6 @@ cards:
         tap_action:
           action: call-service
           service: script.toggle_fan_oscil_vertical
-      - type: button
-        entity: script.toggle_fan_timer
-        show_name: false
-        tap_action:
-          action: call-service
-          service: script.toggle_fan_timer
 
 
   - type: thermostat

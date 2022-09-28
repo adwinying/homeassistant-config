@@ -10,16 +10,25 @@ script:
       - service: mqtt.publish
         data:
           topic: cmnd/IR_Bridge/IRSEND
-          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x06A3E01F"}'
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x017B00FF"}'
 
-  toggle_fan_speed:
-    alias: Fan Speed
+  toggle_fan_speed_up:
+    alias: Fan Speed Up
     icon: mdi:fan-chevron-up
     sequence:
       - service: mqtt.publish
         data:
           topic: cmnd/IR_Bridge/IRSEND
-          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x06A300FF"}'
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x017B10EF"}'
+
+  toggle_fan_speed_down:
+    alias: Fan Speed Down
+    icon: mdi:fan-chevron-down
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: cmnd/IR_Bridge/IRSEND
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x017B08F7"}'
 
   toggle_fan_oscil_horizontal:
     alias: Fan Oscil. Horizontal
@@ -28,7 +37,7 @@ script:
       - service: mqtt.publish
         data:
           topic: cmnd/IR_Bridge/IRSEND
-          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x06A3807F"}'
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x017BA857"}'
 
   toggle_fan_oscil_vertical:
     alias: Fan Oscil. Vertical
@@ -37,13 +46,4 @@ script:
       - service: mqtt.publish
         data:
           topic: cmnd/IR_Bridge/IRSEND
-          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x06A3A05F"}'
-
-  toggle_fan_timer:
-    alias: Fan Timer
-    icon: mdi:timer
-    sequence:
-      - service: mqtt.publish
-        data:
-          topic: cmnd/IR_Bridge/IRSEND
-          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x06A340BF"}'
+          payload: '{"Protocol":"NEC","Bits":32,"Data":"0x017B6897"}'
