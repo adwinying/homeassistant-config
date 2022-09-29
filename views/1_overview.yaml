@@ -7,11 +7,6 @@ badges:
   - entity: person.ws
 
 cards:
-  - type: weather-forecast
-    name: Home
-    entity: weather.dark_sky
-
-
   - type: vertical-stack
     cards:
       - type: entities
