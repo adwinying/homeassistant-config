@@ -2,27 +2,24 @@
 # Room Sensor
 #
 
-sensor:
-  - platform: mqtt
-    name: Room Temperature
-    state_topic: tele/Sensor_Room/SENSOR
-    value_template: '{{ value_json["SCD40"]["Temperature"] }}'
-    unit_of_measurement: °C
-  - platform: mqtt
-    name: Room Humidity
-    state_topic: tele/Sensor_Room/SENSOR
-    value_template: '{{ value_json["SCD40"]["Humidity"] }}'
-    unit_of_measurement: '%'
-  - platform: mqtt
-    name: Room Dew Point
-    state_topic: tele/Sensor_Room/SENSOR
-    value_template: '{{ value_json["SCD40"]["DewPoint"] }}'
-    unit_of_measurement: °C
-  - platform: mqtt
-    name: Room Carbon Dioxide
-    state_topic: tele/Sensor_Room/SENSOR
-    value_template: '{{ value_json["SCD40"]["CarbonDioxide"] }}'
-    unit_of_measurement: ppm
+mqtt:
+  sensor:
+    - name: Room Temperature
+      state_topic: tele/Sensor_Room/SENSOR
+      value_template: '{{ value_json["SCD40"]["Temperature"] }}'
+      unit_of_measurement: °C
+    - name: Room Humidity
+      state_topic: tele/Sensor_Room/SENSOR
+      value_template: '{{ value_json["SCD40"]["Humidity"] }}'
+      unit_of_measurement: '%'
+    - name: Room Dew Point
+      state_topic: tele/Sensor_Room/SENSOR
+      value_template: '{{ value_json["SCD40"]["DewPoint"] }}'
+      unit_of_measurement: °C
+    - name: Room Carbon Dioxide
+      state_topic: tele/Sensor_Room/SENSOR
+      value_template: '{{ value_json["SCD40"]["CarbonDioxide"] }}'
+      unit_of_measurement: ppm
 
 
 #

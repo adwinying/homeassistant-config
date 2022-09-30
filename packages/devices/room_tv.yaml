@@ -57,11 +57,11 @@ homeassistant:
 #
 # Preserve source input
 #
-sensor:
-  - name: Room TV Source
-    platform: mqtt
-    state_topic: homeassistant/media_player/room_tv
-    value_template: "{{ value_json.source }}"
+mqtt:
+  sensor:
+    - name: Room TV Source
+      state_topic: homeassistant/media_player/room_tv
+      value_template: "{{ value_json.source }}"
 
 #
 # TV Switch On Combo

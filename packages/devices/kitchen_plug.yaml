@@ -2,42 +2,37 @@
 # Kitchen Plug
 #
 
-switch:
-  - platform: mqtt
-    name: Kitchen Rice Cooker Plug
-    command_topic: cmnd/Plug_Kitchen/POWER1
-    state_topic: stat/Plug_Kitchen/POWER1
-    payload_on: "ON"
-    payload_off: "OFF"
+mqtt:
+  switch:
+    - name: Kitchen Rice Cooker Plug
+      command_topic: cmnd/Plug_Kitchen/POWER1
+      state_topic: stat/Plug_Kitchen/POWER1
+      payload_on: "ON"
+      payload_off: "OFF"
 
-  - platform: mqtt
-    name: Kitchen Heaters Plug
-    command_topic: cmnd/Plug_Kitchen/POWER2
-    state_topic: stat/Plug_Kitchen/POWER2
-    payload_on: "ON"
-    payload_off: "OFF"
+    - name: Kitchen Heaters Plug
+      command_topic: cmnd/Plug_Kitchen/POWER2
+      state_topic: stat/Plug_Kitchen/POWER2
+      payload_on: "ON"
+      payload_off: "OFF"
 
 #
 # Energy Consumption Sensors
 #
-sensor:
-  - platform: mqtt
-    name: Kitchen Plug Power
-    state_topic: tele/Plug_Kitchen/SENSOR
-    value_template: '{{ value_json["ENERGY"]["Power"] }}'
-    unit_of_measurement: W
-  - platform: mqtt
-    name: Kitchen Plug Energy Today
-    state_topic: tele/Plug_Kitchen/SENSOR
-    value_template: '{{ value_json["ENERGY"]["Today"] }}'
-    unit_of_measurement: kWh
-  - platform: mqtt
-    name: Kitchen Plug Energy Yesterday
-    state_topic: tele/Plug_Kitchen/SENSOR
-    value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
-    unit_of_measurement: kWh
-  - platform: mqtt
-    name: Kitchen Plug Energy Total
-    state_topic: tele/Plug_Kitchen/SENSOR
-    value_template: '{{ value_json["ENERGY"]["Total"] }}'
-    unit_of_measurement: kWh
+  sensor:
+    - name: Kitchen Plug Power
+      state_topic: tele/Plug_Kitchen/SENSOR
+      value_template: '{{ value_json["ENERGY"]["Power"] }}'
+      unit_of_measurement: W
+    - name: Kitchen Plug Energy Today
+      state_topic: tele/Plug_Kitchen/SENSOR
+      value_template: '{{ value_json["ENERGY"]["Today"] }}'
+      unit_of_measurement: kWh
+    - name: Kitchen Plug Energy Yesterday
+      state_topic: tele/Plug_Kitchen/SENSOR
+      value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+      unit_of_measurement: kWh
+    - name: Kitchen Plug Energy Total
+      state_topic: tele/Plug_Kitchen/SENSOR
+      value_template: '{{ value_json["ENERGY"]["Total"] }}'
+      unit_of_measurement: kWh
