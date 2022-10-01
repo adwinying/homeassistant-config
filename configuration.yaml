@@ -4,6 +4,3 @@
 
 homeassistant:
   packages: !include_dir_named packages
-
-# script: !include scripts.yaml
-# scene: !include scenes.yaml

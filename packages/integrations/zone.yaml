@@ -9,14 +9,8 @@ zone:
     radius: 100
     icon: mdi:home
 
-  - name: qnote
-    latitude: !secret qnote_latitude
-    longitude: !secret qnote_longitude
+  - name: Leverages
+    latitude: !secret leverages_latitude
+    longitude: !secret leverages_longitude
     radius: 100
-    icon: mdi:cat
-
-  - name: 7sense
-    latitude: !secret 7sense_latitude
-    longitude: !secret 7sense_longitude
-    radius: 100
-    icon: mdi:calculator
+    icon: mdi:office-building
