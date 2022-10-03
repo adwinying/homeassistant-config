@@ -72,3 +72,12 @@ cards:
         name: Last Update Trigger (A)
       - entity: sensor.sws_last_update_trigger
         name: Last Update Trigger (S)
+
+  - type: entities
+    title: Entrance
+    entities:
+      - entity: lock.entrance_door
+      - entity: script.toggle_entrance_auto_lock
+        icon: mdi:light-switch
+      - entity: script.open_sesame
+        icon: mdi:light-switch

@@ -5,6 +5,9 @@
 homekit:
   filter:
     include_entities:
+      - lock.entrance_door
+      - script.toggle_entrance_auto_lock
+      - script.open_sesame
       - light.bedroom_lights
       - light.room_white_light
       - light.room_yellow_light
