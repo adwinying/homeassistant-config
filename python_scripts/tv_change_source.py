@@ -62,6 +62,10 @@ def main():
     targetSource  = get_target_source()
     currentSource = get_current_source()
 
+    if (currentSource == 'unknown'):
+        set_source_state(targetSource)
+        raise Exception(f"[WARN] current source is unknown. Resetting source to target")
+
     targetIndex  = SOURCES.index(targetSource)
     currentIndex = SOURCES.index(currentSource)
 
