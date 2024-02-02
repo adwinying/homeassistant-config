@@ -1,0 +1,80 @@
+#
+# Sesame Bridge
+# https://github.com/homy-newfs8/esphome-sesame3
+#
+
+esphome:
+  name: sesame-bridge-entrance
+  friendly_name: "Sesame Bridge - Entrance"
+  libraries:
+      - https://github.com/homy-newfs8/libsesame3bt#0.11.0
+      - davetcc/TaskManagerIO @ ^1.4.0
+  platformio_options:
+    board_build.flash_mode: dio
+    build_flags:
+      - -std=gnu++17 -Wall -Wextra
+      - -DMBEDTLS_DEPRECATED_REMOVED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+      - -DTM_ENABLE_CAPTURED_LAMBDAS
+      - -DCONFIG_BT_NIMBLE_MAX_CONNECTIONS=4
+    build_unflags:
+      - -std=gnu++11
+
+external_components:
+  - source:
+      type: git
+      url: https://github.com/homy-newfs8/esphome-sesame3
+      ref: v0.5.0
+    components: [ sesame_lock, sesame_ble ]
+
+esp32:
+  board: lolin_c3_mini
+  variant: esp32c3
+  framework:
+    type: arduino
+
+ota:
+  password: ""
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+  use_address: !secret wifi_addr
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "SesameBridgeEntrance"
+    password: "espespesp"
+
+mqtt:
+  broker: !secret mqtt_addr
+  port: !secret mqtt_port
+  topic_prefix: esphome/SesameBridge_Entrance
+  discovery: false
+
+logger:
+  level: info
+
+captive_portal:
+
+web_server:
+
+lock:
+  - platform: sesame_lock
+    name: EntranceLock
+    id: entrance_lock
+    model: sesame_3
+    public_key: !secret lock_pubkey
+    secret: !secret lock_secret
+    address: !secret lock_addr
+    state_topic: esphome/SesameBridge_Entrance/lock/state
+    command_topic: esphome/SesameBridge_Entrance/lock/command
+
+  - platform: sesame_lock
+    name: EntranceBot
+    id: entrance_bot
+    model: sesame_bot
+    public_key: !secret bot_pubkey
+    secret: !secret bot_secret
+    address: !secret bot_addr
+    state_topic: esphome/SesameBridge_Entrance/bot/state
+    command_topic: esphome/SesameBridge_Entrance/bot/command
