@@ -77,7 +77,7 @@ cards:
     title: Entrance
     entities:
       - entity: lock.entrance_door
-      - entity: script.toggle_entrance_auto_lock
+      - entity: button.entrance_auto_lock
         icon: mdi:light-switch
       - entity: script.open_sesame
         icon: mdi:light-switch
