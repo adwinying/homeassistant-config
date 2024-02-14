@@ -7,8 +7,7 @@ cards:
     title: Room Lights
     show_header_toggle: false
     entities:
-      - light.room_white_light
-      - light.room_yellow_light
+      - light.room_light
       - light.room_brightness
       - light.room_night_light
 

@@ -9,8 +9,7 @@ homekit:
       - button.entrance_auto_lock
       - script.open_sesame
       - light.bedroom_lights
-      - light.room_white_light
-      - light.room_yellow_light
+      - light.room_light
       - light.room_night_light
       - switch.room_console_plug
       - switch.room_counter_plug
