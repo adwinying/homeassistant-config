@@ -66,21 +66,13 @@ cards:
     entity: climate.room_ac
 
 
-  - type: media-control
-    entity: media_player.apple_tv
-
-
   - type: entities
     title: Plugs
     show_header_toggle: true
     entities:
-      - sensor.room_plug_power
-      - sensor.room_plug_energy_today
-      - sensor.room_plug_energy_yesterday
-      - sensor.room_plug_energy_total
       - switch.room_tv_plug
-      - switch.room_console_plug
-      - switch.room_counter_plug
+      - switch.room_spare_plug_1
+      - switch.room_spare_plug_2
 
 
   - type: entities
