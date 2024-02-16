@@ -60,9 +60,19 @@ cards:
           service: script.toggle_fan_oscil_vertical
 
 
-  - type: thermostat
-    name: Room AC
-    entity: climate.room_ac
+  - type: entities
+    title: Room AC
+    entities:
+      - entity: button.room_ac_auto
+        icon: mdi:thermometer-auto
+      - entity: button.room_ac_cool
+        icon: mdi:snowflake
+      - entity: button.room_ac_heat
+        icon: mdi:fire
+      - entity: button.room_ac_dry
+        icon: mdi:water
+      - entity: button.room_ac_off
+        icon: mdi:thermometer-off
 
 
   - type: entities

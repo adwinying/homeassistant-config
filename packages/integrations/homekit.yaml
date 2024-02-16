@@ -19,7 +19,11 @@ homekit:
       - sensor.room_dew_point
       - sensor.room_humidity
       - sensor.room_carbon_dioxide
-      - climate.room_ac
+      - button.room_ac_auto
+      - button.room_ac_cool
+      - button.room_ac_heat
+      - button.room_ac_dry
+      - button.room_ac_off
       - media_player.room_tv
       - script.toggle_fan_power
       - script.toggle_fan_speed_up
