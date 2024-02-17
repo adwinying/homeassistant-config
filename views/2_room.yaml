@@ -62,17 +62,16 @@ cards:
 
   - type: entities
     title: Room AC
+    show_header_toggle: false
     entities:
-      - entity: button.room_ac_auto
+      - entity: switch.room_ac_auto
         icon: mdi:thermometer-auto
-      - entity: button.room_ac_cool
+      - entity: switch.room_ac_cool
         icon: mdi:snowflake
-      - entity: button.room_ac_heat
+      - entity: switch.room_ac_heat
         icon: mdi:fire
-      - entity: button.room_ac_dry
+      - entity: switch.room_ac_dry
         icon: mdi:water
-      - entity: button.room_ac_off
-        icon: mdi:thermometer-off
 
 
   - type: entities

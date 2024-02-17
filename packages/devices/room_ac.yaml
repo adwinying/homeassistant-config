@@ -3,38 +3,111 @@
 #
 
 mqtt:
-  button:
+  switch:
     - name: Room AC Auto
       command_topic: "cmnd/IR_Bridge/IRSEND"
-      command_template: "{{ value }}"
-      payload_press: "0,+10030-25175+3480-1730+435-1300E-460+405e+430gHfEgHgHgHeIfEeI-1305EfEg+410fEfEfEfEfEgHeIfEgKgHeIgHeI-440IeIlIeIgHgKfEgHgIkEeIgHeIeIeIjEgHgI-1280EeIjEgHeIgKgHlIeIfEeIeIlIeIlIgHgHgHgHeIeIeIgKgHjElIgHgKjEgHlIfEgImEgHeIjIeIgKgHeEeIfIgHlIeIgKgHeIlIeEfI-465HjIeIgKfEfEfEfIfEfEfEfEgHgHeIgHjIeIgHjIgHfEfIeIeIjEeIfEfIfIfEgHgHeIlIfIfIgHfIlIeIfIgHeIfIl+455eHgHgHeIeIgHeIlIgHgHjEgHfIgHeIlIjI-35165CdEfEgHeIgHjEgKeIeIgHfEgKfEfEgKfIfEfEfEfEgHeIfEeIgHgHgHgHgHeIgHeIgHeIeIgHgHgHgHeIlIfIgHeIfEeIeIgHgHgHgHgHgHeIeIfEfEeIgHeIgHgHgHeIeIgHlIgIlHlIjEgHfEgHeIgHgHgHeIeEgHeIgHgHeIgHgHgHeIeIfEfElIeIeIgHlIgHeEeIeIgHfEfEgHgHlIeIlIgHgHeIeIlIjEgHjEgHeIgHeIjIfIfIeIgHgHfIfEeIgHeIeIeIeIlIeIgHgHfInHeOmIeIeIgHjIfElIjEgHjIfI"
-      qos: 1
-      retain: false
+      payload_on: "0,+10030-25175+3480-1730+435-1300E-460+405e+430gHfEgHgHgHeIfEeI-1305EfEg+410fEfEfEfEfEgHeIfEgKgHeIgHeI-440IeIlIeIgHgKfEgHgIkEeIgHeIeIeIjEgHgI-1280EeIjEgHeIgKgHlIeIfEeIeIlIeIlIgHgHgHgHeIeIeIgKgHjElIgHgKjEgHlIfEgImEgHeIjIeIgKgHeEeIfIgHlIeIgKgHeIlIeEfI-465HjIeIgKfEfEfEfIfEfEfEfEgHgHeIgHjIeIgHjIgHfEfIeIeIjEeIfEfIfIfEgHgHeIlIfIfIgHfIlIeIfIgHeIfIl+455eHgHgHeIeIgHeIlIgHgHjEgHfIgHeIlIjI-35165CdEfEgHeIgHjEgKeIeIgHfEgKfEfEgKfIfEfEfEfEgHeIfEeIgHgHgHgHgHeIgHeIgHeIeIgHgHgHgHeIlIfIgHeIfEeIeIgHgHgHgHgHgHeIeIfEfEeIgHeIgHgHgHeIeIgHlIgIlHlIjEgHfEgHeIgHgHgHeIeEgHeIgHgHeIgHgHgHeIeIfEfElIeIeIgHlIgHeEeIeIgHfEfEgHgHlIeIlIgHgHeIeIlIjEgHjEgHeIgHeIjIfIfIeIgHgHfIfEeIgHeIeIeIeIlIeIgHgHfInHeOmIeIeIgHjIfElIjEgHjIfI"
+      payload_off: "0,+10035-25175+3480-1730+435-1300E-460+405g+410gHfEgHgHgIgHfEe+430fE-1305EeJkJfJfEfJfEe+455eHfEeJgHgHeJgHgIgHeJeJgHgIfEeJ-440JgIgHgHgHfJgHgHfJeJeJeL-1280EgHmJeJgHeJgHkEfEgHgHgJiJmJgHeJgHgHeJeLmHgHfEeJeJgHkEgHgIeJgHeJeJeJfEgHeJgHmJeJkEgIgHeJmJeJmJeJfEfEgJ-1275EgIkJfGnJfEfEfEfEfEfEeJmJeJmJfEeJgIfEeJfEfEgHeJfEmJfEfJfEfJgHgHgHgIfEfEeJeJmJgHkEgHgHkEgIeJeJgHmJeJeJeJgHgHkEfEfEfJmJkJgHkE-35170C-1735EfEgHgHgHkEeJgHgIgIfEgIfGoEeJfEfEfEfEfEgHgHfEgHgHeEgHgHgIeJeJeJgIgHeJgHgIeJmJgHmJeJgIgHkEgIgHeJgIgHgHeJeJeJeJfEfEeJeJmLeIgHgHgIfJgHgIgHeJeJkEeJfEeJeJeJeJgHgHgHmJgHeJgHmJgH-465HgHeJeJfEfEgHeEmJgHgHgHmJeJmJgHkJfEeJeJmJgHeJmJeJmJeJmJkEeJfEeJgHgHgHkJfEkJgHeJeJkJfEeJeJgHgHmJeJmJgHmJgHkEgHeJkEgHeJfEgHkEgIfJeJkEgH"
+      optimistic: true
 
     - name: Room AC Cool
       command_topic: "cmnd/IR_Bridge/IRSEND"
-      command_template: "{{ value }}"
-      payload_press: "0,+10030-25180+3480-1730+435-1300E-460+405-440+430iJfEeJeJiJgJ-1280EeJfEfEeJ-1305EfEfEfEfEgHeJfEg+410gMgHgHiJeJeJeJgHgHiJfEeJgHgHe+455eHiJfEfEgHgHfEgHgHfEeJgHeJgHeJiJfEgMeJgHiJgHeJgHgHgHeJiJeJeJiJfEeJgHgHfEgHeJfEgHfEeJgHfJeJgHgHiJeJfEgHgHgMgHgHiNmJiJfEeJfEgHfJfEeJgHfJfEfJfEfEgHeJeJeJlEeJgHlEgHfEfEgMgHlEgHfJfEfEfJgHgHgHiJfEfJgHfEeJeJlEgHeJfEgMeJgHeJiJeJeJgHgHgHlEeJeJfEeJgHlJfE-35160CdEfEgHeJgHfEeJgHeJiJfEgHfEfEgHfEfEfEfEfEgHgMfEgHeJiJgHgHgHgHeJeJeJiJeJiJeJgHgHiJeJfEgHgHfElEfEeJeJgHfEeJeJfEfEeJiJgHgHgHgHeJgMgMeJeJgHeJeJeNkEgHfEiJgHeJeJeJeJgHeJgMgHgMeJeJeJeJgHgMlJfJgHgHeJgHgHgHiJgHiJeJlEfEgHiJeJiJeJiJeJiJeJeJfEeJlEeJgHiJgHlEfEfEeJiJgHfEfEgHeJgMeJiJeJiJeJgHgHfEiJeEfJeJeJgHeJgMfEfEfJfEgH"
-      qos: 1
-      retain: false
+      payload_on: "0,+10030-25180+3480-1730+435-1300E-460+405-440+430iJfEeJeJiJgJ-1280EeJfEfEeJ-1305EfEfEfEfEgHeJfEg+410gMgHgHiJeJeJeJgHgHiJfEeJgHgHe+455eHiJfEfEgHgHfEgHgHfEeJgHeJgHeJiJfEgMeJgHiJgHeJgHgHgHeJiJeJeJiJfEeJgHgHfEgHeJfEgHfEeJgHfJeJgHgHiJeJfEgHgHgMgHgHiNmJiJfEeJfEgHfJfEeJgHfJfEfJfEfEgHeJeJeJlEeJgHlEgHfEfEgMgHlEgHfJfEfEfJgHgHgHiJfEfJgHfEeJeJlEgHeJfEgMeJgHeJiJeJeJgHgHgHlEeJeJfEeJgHlJfE-35160CdEfEgHeJgHfEeJgHeJiJfEgHfEfEgHfEfEfEfEfEgHgMfEgHeJiJgHgHgHgHeJeJeJiJeJiJeJgHgHiJeJfEgHgHfElEfEeJeJgHfEeJeJfEfEeJiJgHgHgHgHeJgMgMeJeJgHeJeJeNkEgHfEiJgHeJeJeJeJgHeJgMgHgMeJeJeJeJgHgMlJfJgHgHeJgHgHgHiJgHiJeJlEfEgHiJeJiJeJiJeJiJeJeJfEeJlEeJgHiJgHlEfEfEeJiJgHfEfEgHeJgMeJiJeJiJeJgHgHfEiJeEfJeJeJgHeJgMfEfEfJfEgH"
+      payload_off: "0,+10035-25175+3480-1730+435-1300E-460+405g+410gHfEgHgHgIgHfEe+430fE-1305EeJkJfJfEfJfEe+455eHfEeJgHgHeJgHgIgHeJeJgHgIfEeJ-440JgIgHgHgHfJgHgHfJeJeJeL-1280EgHmJeJgHeJgHkEfEgHgHgJiJmJgHeJgHgHeJeLmHgHfEeJeJgHkEgHgIeJgHeJeJeJfEgHeJgHmJeJkEgIgHeJmJeJmJeJfEfEgJ-1275EgIkJfGnJfEfEfEfEfEfEeJmJeJmJfEeJgIfEeJfEfEgHeJfEmJfEfJfEfJgHgHgHgIfEfEeJeJmJgHkEgHgHkEgIeJeJgHmJeJeJeJgHgHkEfEfEfJmJkJgHkE-35170C-1735EfEgHgHgHkEeJgHgIgIfEgIfGoEeJfEfEfEfEfEgHgHfEgHgHeEgHgHgIeJeJeJgIgHeJgHgIeJmJgHmJeJgIgHkEgIgHeJgIgHgHeJeJeJeJfEfEeJeJmLeIgHgHgIfJgHgIgHeJeJkEeJfEeJeJeJeJgHgHgHmJgHeJgHmJgH-465HgHeJeJfEfEgHeEmJgHgHgHmJeJmJgHkJfEeJeJmJgHeJmJeJmJeJmJkEeJfEeJgHgHgHkJfEkJgHeJeJkJfEeJeJgHgHmJeJmJgHmJgHkEgHeJkEgHeJfEgHkEgIfJeJkEgH"
+      optimistic: true
 
     - name: Room AC Heat
       command_topic: "cmnd/IR_Bridge/IRSEND"
-      command_template: "{{ value }}"
-      payload_press: "0,+10035-25180+3480-1730+435-1300E-460+410eEe+430fEg+405gJgJgJfEgHfEfEgJfEfEfEfEfEgJ-440IfGeJgJgJkIeIgJeEeIeIgIeJfEkIgJ-465JgJkIgJfEfEgHgJfEgJeIfEgJgJgHeIkIgJfGkHgHeIeIkIeIkIgHgJgJlJeIgJkIfIkIeIkIfEgHgJfIgJ-1305EgJgHmIgJgJgI-415IgJmEgJgJgJgJeIgIeHeIfEeImEgJfEfEeImEfEfEfIfIfEeIgJeIeIfEkIgHfEkIfEfIkIgJfEkImEfEfIfEgJeIgJkIfEmEgJfEgHgJfEkIeIfEeIgJgJeIkIgJgJgJeIgJfEeIgJfIgJkIfIeI-35175CdEfEgJgJgHfEeIkIgIeHmEeIfEfEgJfEfEfEfEfEeIeIfEgJeIeIeIkIgJeIeIgJgJe+455hIeIeIgJgHkIgI-1280EgJgHfEgJgJfEgJeIkIgJmEgJfEgJgJgJeIgJeIgJgJgJgHeIgJeIkIeIfEgJfEgJkIgJeIeIgJgJgJeIeIeIgJgJgJgJgJgJmEfEeIkIgJgJeIgJeIkIeIgJfEfEeIgJeIgHgHgJeIeIgJkIfEgJfIeIkIeIgJfEfEfIgJgJgHfIfEeIkIeIgJgJeIeIeIeIkIfIeIeIfEeIkIkImIfIfIfEfEfEgJ"
-      qos: 1
-      retain: false
+      payload_on: "0,+10035-25180+3480-1730+435-1300E-460+410eEe+430fEg+405gJgJgJfEgHfEfEgJfEfEfEfEfEgJ-440IfGeJgJgJkIeIgJeEeIeIgIeJfEkIgJ-465JgJkIgJfEfEgHgJfEgJeIfEgJgJgHeIkIgJfGkHgHeIeIkIeIkIgHgJgJlJeIgJkIfIkIeIkIfEgHgJfIgJ-1305EgJgHmIgJgJgI-415IgJmEgJgJgJgJeIgIeHeIfEeImEgJfEfEeImEfEfEfIfIfEeIgJeIeIfEkIgHfEkIfEfIkIgJfEkImEfEfIfEgJeIgJkIfEmEgJfEgHgJfEkIeIfEeIgJgJeIkIgJgJgJeIgJfEeIgJfIgJkIfIeI-35175CdEfEgJgJgHfEeIkIgIeHmEeIfEfEgJfEfEfEfEfEeIeIfEgJeIeIeIkIgJeIeIgJgJe+455hIeIeIgJgHkIgI-1280EgJgHfEgJgJfEgJeIkIgJmEgJfEgJgJgJeIgJeIgJgJgJgHeIgJeIkIeIfEgJfEgJkIgJeIeIgJgJgJeIeIeIgJgJgJgJgJgJmEfEeIkIgJgJeIgJeIkIeIgJfEfEeIgJeIgHgHgJeIeIgJkIfEgJfIeIkIeIgJfEfEfIgJgJgHfIfEeIkIeIgJgJeIeIeIeIkIfIeIeIfEeIkIkImIfIfIfEfEfEgJ"
+      payload_off: "0,+10035-25175+3480-1730+435-1300E-460+405g+410gHfEgHgHgIgHfEe+430fE-1305EeJkJfJfEfJfEe+455eHfEeJgHgHeJgHgIgHeJeJgHgIfEeJ-440JgIgHgHgHfJgHgHfJeJeJeL-1280EgHmJeJgHeJgHkEfEgHgHgJiJmJgHeJgHgHeJeLmHgHfEeJeJgHkEgHgIeJgHeJeJeJfEgHeJgHmJeJkEgIgHeJmJeJmJeJfEfEgJ-1275EgIkJfGnJfEfEfEfEfEfEeJmJeJmJfEeJgIfEeJfEfEgHeJfEmJfEfJfEfJgHgHgHgIfEfEeJeJmJgHkEgHgHkEgIeJeJgHmJeJeJeJgHgHkEfEfEfJmJkJgHkE-35170C-1735EfEgHgHgHkEeJgHgIgIfEgIfGoEeJfEfEfEfEfEgHgHfEgHgHeEgHgHgIeJeJeJgIgHeJgHgIeJmJgHmJeJgIgHkEgIgHeJgIgHgHeJeJeJeJfEfEeJeJmLeIgHgHgIfJgHgIgHeJeJkEeJfEeJeJeJeJgHgHgHmJgHeJgHmJgH-465HgHeJeJfEfEgHeEmJgHgHgHmJeJmJgHkJfEeJeJmJgHeJmJeJmJeJmJkEeJfEeJgHgHgHkJfEkJgHeJeJkJfEeJeJgHgHmJeJmJgHmJgHkEgHeJkEgHeJfEgHkEgIfJeJkEgH"
+      optimistic: true
 
     - name: Room AC Dry
       command_topic: "cmnd/IR_Bridge/IRSEND"
-      command_template: "{{ value }}"
-      payload_press: "0,+10035-25175+3480-1735+430-1300+435-460+405hIhE-1280Gh+410hI-440EhI-1305GhIfGfGhIfGfGfGfGfHgIhIfGhIgEgGhKgEgEhIhIhKgEgEfGhIgElEhIlEhImGfGgEgEfGhKhIfGgEhIlEhIlEhIfGgEgEgEhI-465IgEhIgElEhIlEgEhIlEfGgElEfGfGfGfHkEgEgElEgEmGgEgEhIhIlEfGgEhIgElEhKgEgEhIfEgEmGgEfGfGhIhIfGfEfHjGfGgEgEhKhIfGgEhImGgEmEmGgElEfEgEmGfGfGfElEgEgEgEmGfHkEhIlEhIfGlEhIfGgEgEhKhIhIhIlEgElEgEgEfEmGgEgElEgEgG-35165C-1730GfGhIhIhIfGgEgEgEhKfGhIfGfGhIfGfGfGfGfGhIhIfGgEhIgEhIhIhIhKhIhIlEhIhIhKhIhIlEhIgEfGgEgEfGhIfGgEhIgEgElEgElEhIfGfEhIfGhIhIfGfGhIlEhKgElEhIgEmGhImGhKgEgEhIhIhIgEgElEhIhIhIgHlIhIhK-450+415mEfGgEhIhIhIlEgEgEhIhIhImGfGhIgEhIhIgEgEgEhIhIlEmEgEmGhIgEhIhImEfGmGgEhIgEmGfGhKgEgEgEhIgElEgEgEgEmEhIgEmEgElEhIhIhIfElEmEhIgE"
-      qos: 1
-      retain: false
+      payload_on: "0,+10035-25175+3480-1735+430-1300+435-460+405hIhE-1280Gh+410hI-440EhI-1305GhIfGfGhIfGfGfGfGfHgIhIfGhIgEgGhKgEgEhIhIhKgEgEfGhIgElEhIlEhImGfGgEgEfGhKhIfGgEhIlEhIlEhIfGgEgEgEhI-465IgEhIgElEhIlEgEhIlEfGgElEfGfGfGfHkEgEgElEgEmGgEgEhIhIlEfGgEhIgElEhKgEgEhIfEgEmGgEfGfGhIhIfGfEfHjGfGgEgEhKhIfGgEhImGgEmEmGgElEfEgEmGfGfGfElEgEgEgEmGfHkEhIlEhIfGlEhIfGgEgEhKhIhIhIlEgElEgEgEfEmGgEgElEgEgG-35165C-1730GfGhIhIhIfGgEgEgEhKfGhIfGfGhIfGfGfGfGfGhIhIfGgEhIgEhIhIhIhKhIhIlEhIhIhKhIhIlEhIgEfGgEgEfGhIfGgEhIgEgElEgElEhIfGfEhIfGhIhIfGfGhIlEhKgElEhIgEmGhImGhKgEgEhIhIhIgEgElEhIhIhIgHlIhIhK-450+415mEfGgEhIhIhIlEgEgEhIhIhImGfGhIgEhIhIgEgEgEhIhIlEmEgEmGhIgEhIhImEfGmGgEhIgEmGfGhKgEgEgEhIgElEgEgEgEmEhIgEmEgElEhIhIhIfElEmEhIgE"
+      payload_off: "0,+10035-25175+3480-1730+435-1300E-460+405g+410gHfEgHgHgIgHfEe+430fE-1305EeJkJfJfEfJfEe+455eHfEeJgHgHeJgHgIgHeJeJgHgIfEeJ-440JgIgHgHgHfJgHgHfJeJeJeL-1280EgHmJeJgHeJgHkEfEgHgHgJiJmJgHeJgHgHeJeLmHgHfEeJeJgHkEgHgIeJgHeJeJeJfEgHeJgHmJeJkEgIgHeJmJeJmJeJfEfEgJ-1275EgIkJfGnJfEfEfEfEfEfEeJmJeJmJfEeJgIfEeJfEfEgHeJfEmJfEfJfEfJgHgHgHgIfEfEeJeJmJgHkEgHgHkEgIeJeJgHmJeJeJeJgHgHkEfEfEfJmJkJgHkE-35170C-1735EfEgHgHgHkEeJgHgIgIfEgIfGoEeJfEfEfEfEfEgHgHfEgHgHeEgHgHgIeJeJeJgIgHeJgHgIeJmJgHmJeJgIgHkEgIgHeJgIgHgHeJeJeJeJfEfEeJeJmLeIgHgHgIfJgHgIgHeJeJkEeJfEeJeJeJeJgHgHgHmJgHeJgHmJgH-465HgHeJeJfEfEgHeEmJgHgHgHmJeJmJgHkJfEeJeJmJgHeJmJeJmJeJmJkEeJfEeJgHgHgHkJfEkJgHeJeJkJfEeJeJgHgHmJeJmJgHmJgHkEgHeJkEgHeJfEgHkEgIfJeJkEgH"
+      optimistic: true
 
-    - name: Room AC Off
-      command_topic: "cmnd/IR_Bridge/IRSEND"
-      command_template: "{{ value }}"
-      payload_press: "0,+10035-25175+3480-1730+435-1300E-460+405g+410gHfEgHgHgIgHfEe+430fE-1305EeJkJfJfEfJfEe+455eHfEeJgHgHeJgHgIgHeJeJgHgIfEeJ-440JgIgHgHgHfJgHgHfJeJeJeL-1280EgHmJeJgHeJgHkEfEgHgHgJiJmJgHeJgHgHeJeLmHgHfEeJeJgHkEgHgIeJgHeJeJeJfEgHeJgHmJeJkEgIgHeJmJeJmJeJfEfEgJ-1275EgIkJfGnJfEfEfEfEfEfEeJmJeJmJfEeJgIfEeJfEfEgHeJfEmJfEfJfEfJgHgHgHgIfEfEeJeJmJgHkEgHgHkEgIeJeJgHmJeJeJeJgHgHkEfEfEfJmJkJgHkE-35170C-1735EfEgHgHgHkEeJgHgIgIfEgIfGoEeJfEfEfEfEfEgHgHfEgHgHeEgHgHgIeJeJeJgIgHeJgHgIeJmJgHmJeJgIgHkEgIgHeJgIgHgHeJeJeJeJfEfEeJeJmLeIgHgHgIfJgHgIgHeJeJkEeJfEeJeJeJeJgHgHgHmJgHeJgHmJgH-465HgHeJeJfEfEgHeEmJgHgHgHmJeJmJgHkJfEeJeJmJgHeJmJeJmJeJmJkEeJfEeJgHgHgHkJfEkJgHeJeJkJfEeJeJgHgHmJeJmJgHmJgHkEgHeJkEgHeJfEgHkEgIfJeJkEgH"
-      qos: 1
-      retain: false
+#
+# Simulate 5-way toggle switch
+#
+automation:
+  - alias: Turn other room ac mode off when room ac auto is on
+    trigger:
+      platform: state
+      entity_id: switch.room_ac_auto
+      from: "off"
+      to: "on"
+    action:
+      - service: python_script.set_state
+        data:
+          entity_id: switch.room_ac_cool
+          state: "off"
+      - service: python_script.set_state
+        data:
+          entity_id: switch.room_ac_heat
+          state: "off"
+      - service: python_script.set_state
+        data:
+          entity_id: switch.room_ac_dry
+          state: "off"
+
+  - alias: Turn other room ac mode off when room ac cool is on
+    trigger:
+      platform: state
+      entity_id: switch.room_ac_cool
+      from: "off"
+      to: "on"
+    action:
+      - service: python_script.set_state
+        data:
+          entity_id: switch.room_ac_auto
+          state: "off"
+      - service: python_script.set_state
+        data:
+          entity_id: switch.room_ac_heat
+          state: "off"
+      - service: python_script.set_state
+        data:
+          entity_id: switch.room_ac_dry
+          state: "off"
+
+  - alias: Turn other room ac mode off when room ac heat is on
+    trigger:
+      platform: state
+      entity_id: switch.room_ac_heat
+      from: "off"
+      to: "on"
+    action:
+      - service: python_script.set_state
+        data:
+          entity_id: switch.room_ac_auto
+          state: "off"
+      - service: python_script.set_state
+        data:
+          entity_id: switch.room_ac_cool
+          state: "off"
+      - service: python_script.set_state
+        data:
+          entity_id: switch.room_ac_dry
+          state: "off"
+
+  - alias: Turn other room ac mode off when room ac dry is on
+    trigger:
+      platform: state
+      entity_id: switch.room_ac_dry
+      from: "off"
+      to: "on"
+    action:
+      - service: python_script.set_state
+        data:
+          entity_id: switch.room_ac_auto
+          state: "off"
+      - service: python_script.set_state
+        data:
+          entity_id: switch.room_ac_cool
+          state: "off"
+      - service: python_script.set_state
+        data:
+          entity_id: switch.room_ac_heat
+          state: "off"
