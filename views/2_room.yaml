@@ -1,15 +1,39 @@
 path: room
 title: Room
-icon: mdi:bed-empty
+icon: mdi:home-assistant
+
+badges:
+  - entity: person.adwin
+  - entity: person.ws
 
 cards:
   - type: entities
-    title: Room Lights
-    show_header_toggle: false
+    title: Entrance Lock
     entities:
-      - light.room_light
-      - light.room_brightness
-      - light.room_night_light
+      - entity: lock.entrance_door
+      - entity: button.entrance_auto_lock
+        icon: mdi:light-switch
+      - entity: script.open_sesame
+        icon: mdi:light-switch
+
+
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: Room Lights
+        show_header_toggle: false
+        entities:
+          - light.room_light
+          - light.room_brightness
+          - light.room_night_light
+
+      - type: entities
+        title: Room Plugs
+        show_header_toggle: true
+        entities:
+          - switch.room_tv_plug
+          - switch.room_spare_plug_1
+          - switch.room_spare_plug_2
 
 
   - type: entities
@@ -25,66 +49,58 @@ cards:
     entity: media_player.room_tv
 
 
-  - type: grid
-    title: Fan
+  - type: vertical-stack
     cards:
-      - type: button
-        entity: script.toggle_fan_power
-        show_name: false
-        tap_action:
-          action: call-service
-          service: script.toggle_fan_power
-      - type: button
-        entity: script.toggle_fan_speed_up
-        show_name: false
-        tap_action:
-          action: call-service
-          service: script.toggle_fan_speed_up
-      - type: button
-        entity: script.toggle_fan_speed_down
-        show_name: false
-        tap_action:
-          action: call-service
-          service: script.toggle_fan_speed_down
-      - type: button
-        entity: script.toggle_fan_oscil_horizontal
-        show_name: false
-        tap_action:
-          action: call-service
-          service: script.toggle_fan_oscil_horizontal
-      - type: button
-        entity: script.toggle_fan_oscil_vertical
-        show_name: false
-        tap_action:
-          action: call-service
-          service: script.toggle_fan_oscil_vertical
+      - type: entities
+        title: Room AC
+        show_header_toggle: false
+        entities:
+          - entity: switch.room_ac_auto
+            icon: mdi:thermometer-auto
+          - entity: switch.room_ac_cool
+            icon: mdi:snowflake
+          - entity: switch.room_ac_heat
+            icon: mdi:fire
+          - entity: switch.room_ac_dry
+            icon: mdi:water
+
+      - type: grid
+        title: Room Fan
+        cards:
+          - type: button
+            entity: script.toggle_fan_power
+            show_name: false
+            tap_action:
+              action: call-service
+              service: script.toggle_fan_power
+          - type: button
+            entity: script.toggle_fan_speed_up
+            show_name: false
+            tap_action:
+              action: call-service
+              service: script.toggle_fan_speed_up
+          - type: button
+            entity: script.toggle_fan_speed_down
+            show_name: false
+            tap_action:
+              action: call-service
+              service: script.toggle_fan_speed_down
+          - type: button
+            entity: script.toggle_fan_oscil_horizontal
+            show_name: false
+            tap_action:
+              action: call-service
+              service: script.toggle_fan_oscil_horizontal
+          - type: button
+            entity: script.toggle_fan_oscil_vertical
+            show_name: false
+            tap_action:
+              action: call-service
+              service: script.toggle_fan_oscil_vertical
 
 
   - type: entities
-    title: Room AC
-    show_header_toggle: false
-    entities:
-      - entity: switch.room_ac_auto
-        icon: mdi:thermometer-auto
-      - entity: switch.room_ac_cool
-        icon: mdi:snowflake
-      - entity: switch.room_ac_heat
-        icon: mdi:fire
-      - entity: switch.room_ac_dry
-        icon: mdi:water
-
-
-  - type: entities
-    title: Plugs
-    show_header_toggle: true
-    entities:
-      - switch.room_tv_plug
-      - switch.room_spare_plug_1
-      - switch.room_spare_plug_2
-
-
-  - type: entities
-    title: Sensors
+    title: Room Sensors
     entities:
       - sensor.room_temperature
       - sensor.room_humidity

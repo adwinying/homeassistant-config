@@ -1,10 +1,6 @@
-path: overview
-title: Overview
-icon: mdi:home-assistant
-
-badges:
-  - entity: person.adwin
-  - entity: person.ws
+path: server
+title: Server
+icon: mdi:server
 
 cards:
   - type: vertical-stack
@@ -19,14 +15,18 @@ cards:
             icon: 'mdi:router-wireless'
 
           - type: weblink
+            name: Grafana
+            url: https://grafana.iadw.in
+            icon: mdi:poll
+
+          - type: weblink
             name: Transmission
             url: https://transmission.iadw.in
             icon: mdi:download
 
           - type: weblink
-            name: Duplicati
-            url: https://duplicati.iadw.in
-            icon: mdi:cloud-upload
+            name: Prowlarr
+            url: https://prowlarr.iadw.in
 
       - type: entities
         title: Media
@@ -48,8 +48,9 @@ cards:
             icon: mdi:filmstrip
 
           - type: weblink
-            name: Prowlarr
-            url: https://prowlarr.iadw.in
+            name: Lidarr
+            url: https://lidarr.iadw.in
+            icon: mdi:music
 
 
   - type: entities
@@ -72,12 +73,3 @@ cards:
         name: Last Update Trigger (A)
       - entity: sensor.sws_last_update_trigger
         name: Last Update Trigger (S)
-
-  - type: entities
-    title: Entrance
-    entities:
-      - entity: lock.entrance_door
-      - entity: button.entrance_auto_lock
-        icon: mdi:light-switch
-      - entity: script.open_sesame
-        icon: mdi:light-switch
