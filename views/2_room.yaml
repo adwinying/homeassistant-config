@@ -8,7 +8,7 @@ badges:
 
 cards:
   - type: entities
-    title: Entrance Lock
+    title: Entrance
     entities:
       - entity: lock.entrance_door
       - entity: button.entrance_auto_lock
@@ -17,30 +17,29 @@ cards:
         icon: mdi:light-switch
 
 
-  - type: vertical-stack
-    cards:
-      - type: entities
-        title: Room Lights
-        show_header_toggle: false
-        entities:
-          - light.room_light
-          - light.room_brightness
-          - light.room_night_light
-
-      - type: entities
-        title: Room Plugs
-        show_header_toggle: true
-        entities:
-          - switch.room_tv_plug
+  - type: entities
+    title: Living Room
+    entities:
+      - light.room_light
+      - light.room_brightness
+      - light.room_night_light
+      - switch.room_tv_plug
 
 
   - type: entities
-    title: Bedroom Lights
-    show_header_toggle: false
+    title: Bedroom
     entities:
       - light.bedroom_lights
       - light.bedroom_light_inner
       - light.bedroom_light_outer
+
+
+  - type: entities
+    title: Closet
+    entities:
+      - binary_sensor.closet_door
+      - sensor.closet_door_battery
+      - binary_sensor.closet_door_battery_low
 
 
   - type: media-control

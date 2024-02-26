@@ -1,0 +1,26 @@
+#
+# Closet Sensor Door
+#
+
+mqtt:
+  binary_sensor:
+    - name: Closet Door
+      state_topic: zigbee2mqtt/Closet_SensorDoor
+      value_template: '{{ value_json.contact }}'
+      payload_on: false
+      payload_off: true
+      device_class: door
+
+    - name: Closet Door Battery Low
+      state_topic: zigbee2mqtt/Closet_SensorDoor
+      value_template: '{{ value_json.battery_low }}'
+      payload_on: true
+      payload_off: false
+      device_class: battery
+
+  sensor:
+    - name: Closet Door Battery
+      state_topic: zigbee2mqtt/Closet_SensorDoor
+      value_template: '{{ value_json.battery }}'
+      unit_of_measurement: '%'
+      device_class: battery
