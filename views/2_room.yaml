@@ -32,8 +32,6 @@ cards:
         show_header_toggle: true
         entities:
           - switch.room_tv_plug
-          - switch.room_spare_plug_1
-          - switch.room_spare_plug_2
 
 
   - type: entities

@@ -5,12 +5,12 @@
 mqtt:
   lock:
     name: Entrance Door
-    state_topic: "esphome/SesameBridge_Entrance/lock/state"
+    state_topic: "esphome/Entrance_SesameBridge/lock/state"
     value_template: "{{ value }}"
     state_locked: "LOCKED"
     state_unlocked: "UNLOCKED"
     state_jammed: "JAMMED"
-    command_topic: "esphome/SesameBridge_Entrance/lock/command"
+    command_topic: "esphome/Entrance_SesameBridge/lock/command"
     command_template: "{{ value }}"
     payload_lock: "LOCK"
     payload_unlock: "UNLOCK"
@@ -20,10 +20,10 @@ mqtt:
 
   button:
     name: Entrance Auto Lock
-    availability_topic: "esphome/SesameBridge_Entrance/status"
+    availability_topic: "esphome/Entrance_SesameBridge/status"
     payload_available: "online"
     payload_not_available: "offline"
-    command_topic: "esphome/SesameBridge_Entrance/bot/command"
+    command_topic: "esphome/Entrance_SesameBridge/bot/command"
     command_template: "{{ value }}"
     payload_press: "OPEN"
     qos: 1

@@ -5,20 +5,20 @@
 mqtt:
   light:
     - name: Bedroom Light Inner
-      command_topic: cmnd/Light_Bedroom_1/POWER
-      state_topic: tele/Light_Bedroom_1/STATE
+      command_topic: cmnd/Bedroom_LightBulb1/POWER
+      state_topic: tele/Bedroom_LightBulb1/STATE
       state_value_template: "{{ value_json.POWER }}"
-      availability_topic: tele/Light_Bedroom_1/LWT
-      brightness_command_topic: cmnd/Light_Bedroom_1/Dimmer
-      brightness_state_topic: tele/Light_Bedroom_1/STATE
+      availability_topic: tele/Bedroom_LightBulb1/LWT
+      brightness_command_topic: cmnd/Bedroom_LightBulb1/Dimmer
+      brightness_state_topic: tele/Bedroom_LightBulb1/STATE
       brightness_scale: 100
       on_command_type: brightness
       brightness_value_template: "{{ value_json.Dimmer }}"
-      color_temp_command_topic: cmnd/Light_Bedroom_1/CT
-      color_temp_state_topic: tele/Light_Bedroom_1/STATE
+      color_temp_command_topic: cmnd/Bedroom_LightBulb1/CT
+      color_temp_state_topic: tele/Bedroom_LightBulb1/STATE
       color_temp_value_template: "{{ value_json.CT }}"
-      rgb_command_topic: cmnd/Light_Bedroom_1/Color2
-      rgb_state_topic: tele/Light_Bedroom_1/STATE
+      rgb_command_topic: cmnd/Bedroom_LightBulb1/Color2
+      rgb_state_topic: tele/Bedroom_LightBulb1/STATE
       rgb_value_template: "{{ value_json.Color.split(',')[0:3]|join(',') }}"
       payload_on: "ON"
       payload_off: "OFF"
@@ -26,20 +26,20 @@ mqtt:
       payload_not_available: "Offline"
 
     - name: Bedroom Light Outer
-      command_topic: cmnd/Light_Bedroom_2/POWER
-      state_topic: tele/Light_Bedroom_2/STATE
+      command_topic: cmnd/Bedroom_LightBulb2/POWER
+      state_topic: tele/Bedroom_LightBulb2/STATE
       state_value_template: "{{ value_json.POWER }}"
-      availability_topic: tele/Light_Bedroom_2/LWT
-      brightness_command_topic: cmnd/Light_Bedroom_2/Dimmer
-      brightness_state_topic: tele/Light_Bedroom_2/STATE
+      availability_topic: tele/Bedroom_LightBulb2/LWT
+      brightness_command_topic: cmnd/Bedroom_LightBulb2/Dimmer
+      brightness_state_topic: tele/Bedroom_LightBulb2/STATE
       brightness_scale: 100
       on_command_type: brightness
       brightness_value_template: "{{ value_json.Dimmer }}"
-      color_temp_command_topic: cmnd/Light_Bedroom_2/CT
-      color_temp_state_topic: tele/Light_Bedroom_2/STATE
+      color_temp_command_topic: cmnd/Bedroom_LightBulb2/CT
+      color_temp_state_topic: tele/Bedroom_LightBulb2/STATE
       color_temp_value_template: "{{ value_json.CT }}"
-      rgb_command_topic: cmnd/Light_Bedroom_2/Color2
-      rgb_state_topic: tele/Light_Bedroom_2/STATE
+      rgb_command_topic: cmnd/Bedroom_LightBulb2/Color2
+      rgb_state_topic: tele/Bedroom_LightBulb2/STATE
       rgb_value_template: "{{ value_json.Color.split(',')[0:3]|join(',') }}"
       payload_on: "ON"
       payload_off: "OFF"

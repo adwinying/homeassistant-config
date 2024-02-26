@@ -4,8 +4,8 @@
 #
 
 esphome:
-  name: sesame-bridge-entrance
-  friendly_name: "Sesame Bridge - Entrance"
+  name: entrance-sesame-bridge
+  friendly_name: "Entrance Sesame Bridge"
   libraries:
       - https://github.com/homy-newfs8/libsesame3bt#0.11.0
       - davetcc/TaskManagerIO @ ^1.4.0
@@ -42,13 +42,13 @@ wifi:
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
-    ssid: "SesameBridgeEntrance"
+    ssid: "EntranceSesameBridge"
     password: "espespesp"
 
 mqtt:
   broker: !secret mqtt_addr
   port: !secret mqtt_port
-  topic_prefix: esphome/SesameBridge_Entrance
+  topic_prefix: esphome/Entrance_SesameBridge
   discovery: false
 
 logger:
@@ -66,8 +66,8 @@ lock:
     public_key: !secret lock_pubkey
     secret: !secret lock_secret
     address: !secret lock_addr
-    state_topic: esphome/SesameBridge_Entrance/lock/state
-    command_topic: esphome/SesameBridge_Entrance/lock/command
+    state_topic: esphome/Entrance_SesameBridge/lock/state
+    command_topic: esphome/Entrance_SesameBridge/lock/command
 
   - platform: sesame_lock
     name: EntranceBot
@@ -76,5 +76,5 @@ lock:
     public_key: !secret bot_pubkey
     secret: !secret bot_secret
     address: !secret bot_addr
-    state_topic: esphome/SesameBridge_Entrance/bot/state
-    command_topic: esphome/SesameBridge_Entrance/bot/command
+    state_topic: esphome/Entrance_SesameBridge/bot/state
+    command_topic: esphome/Entrance_SesameBridge/bot/command
