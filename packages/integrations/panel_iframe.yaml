@@ -1,0 +1,5 @@
+panel_iframe:
+  router:
+    icon: mdi:bee
+    title: "Zigbee2MQTT"
+    url: "https://zigbee2mqtt.iadw.in"
