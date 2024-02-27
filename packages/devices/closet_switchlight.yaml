@@ -1,0 +1,12 @@
+#
+# Closet Switch Light
+#
+
+mqtt:
+  switch:
+    - name: Closet Light
+      command_topic: zigbee2mqtt/Closet_SwitchLight/set
+      state_topic: zigbee2mqtt/Closet_SwitchLight
+      value_template: "{{ value_json.state }}"
+      payload_on: "ON"
+      payload_off: "OFF"
