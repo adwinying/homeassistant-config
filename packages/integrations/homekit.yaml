@@ -5,30 +5,42 @@
 homekit:
   filter:
     include_entities:
+      # Entrance
       - lock.entrance_door
       - button.entrance_auto_lock
       - script.open_sesame
-      - light.bedroom_lights
+      # Storeroom
+      - binary_sensor.storeroom_door
+      - switch.storeroom_light
+      # Bathroom
+      - switch.bathroom_light
+      - switch.bathroom_mirror
+      # Living Room
       - light.living_room_light
       - light.living_room_night_light
-      - switch.room_console_plug
-      - switch.room_counter_plug
-      - switch.kitchen_rice_cooker_plug
-      - switch.kitchen_heaters_plug
+      - media_player.living_room_tv
+      # Bedroom
+      - light.bedroom_lights
+      # Closet
+      - binary_sensor.closet_door
+      - siwtch.closet_light
+      # Room Sensor
       - sensor.room_temperature
       - sensor.room_dew_point
       - sensor.room_humidity
       - sensor.room_carbon_dioxide
+      # Room AC
       - switch.room_ac_auto
       - switch.room_ac_cool
       - switch.room_ac_heat
       - switch.room_ac_dry
-      - media_player.living_room_tv
+      # Room Fan
       - script.toggle_fan_power
       - script.toggle_fan_speed_up
       - script.toggle_fan_speed_down
       - script.toggle_fan_oscil_horizontal
       - script.toggle_fan_oscil_vertical
+      # Misc
       - input_boolean.adwin_present
       - input_boolean.shiuan_present
   entity_config:
