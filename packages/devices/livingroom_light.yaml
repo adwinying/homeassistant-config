@@ -1,22 +1,22 @@
 #
-# Room Light
+# Living Room Light
 #
 
 mqtt:
   light:
-    - name: Room Light
+    - name: Living Room Light
       command_topic: cmnd/IR_Bridge/IRSEND
       payload_on: '{"Protocol":"NEC","Bits":32,"Data":"0x01A359A6"}'
       payload_off: '{"Protocol":"NEC","Bits":32,"Data":"0x01A310EF"}'
       optimistic: true
 
-    - name: Room Brightness
+    - name: Living Room Brightness
       command_topic: cmnd/IR_Bridge/IRSEND
       payload_on: '{"Protocol":"NEC","Bits":32,"Data":"0x01A37986"}'
       payload_off: '{"Protocol":"NEC","Bits":32,"Data":"0x01A36996"}'
       optimistic: true
 
-    - name: Room Night Light
+    - name: Living Room Night Light
       command_topic: cmnd/IR_Bridge/IRSEND
       payload_on: '{"Protocol":"NEC","Bits":32,"Data":"0x01A354AB"}'
       payload_off: '{"Protocol":"NEC","Bits":32,"Data":"0x01A310EF"}'
@@ -26,26 +26,26 @@ mqtt:
 # Simulate 3-way toggle switch
 #
 automation:
-  - alias: Turn other room lights off when night light is on
+  - alias: Turn other Living Room Lights off when Living Room Night Light is on
     trigger:
       platform: state
-      entity_id: light.room_night_light
+      entity_id: light.living_room_night_light
       from: "off"
       to: "on"
     action:
       - service: python_script.set_state
         data:
-          entity_id: light.room_light
+          entity_id: light.living_room_light
           state: "off"
 
-  - alias: Turn other room lights off when light is on
+  - alias: Turn other Living Room Lights off when Living Room Light is on
     trigger:
       platform: state
-      entity_id: light.room_light
+      entity_id: light.living_room_light
       from: "off"
       to: "on"
     action:
       - service: python_script.set_state
         data:
-          entity_id: light.room_night_light
+          entity_id: light.living_room_night_light
           state: "off"

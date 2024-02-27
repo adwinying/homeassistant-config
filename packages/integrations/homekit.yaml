@@ -9,8 +9,8 @@ homekit:
       - button.entrance_auto_lock
       - script.open_sesame
       - light.bedroom_lights
-      - light.room_light
-      - light.room_night_light
+      - light.living_room_light
+      - light.living_room_night_light
       - switch.room_console_plug
       - switch.room_counter_plug
       - switch.kitchen_rice_cooker_plug
@@ -23,7 +23,7 @@ homekit:
       - switch.room_ac_cool
       - switch.room_ac_heat
       - switch.room_ac_dry
-      - media_player.room_tv
+      - media_player.living_room_tv
       - script.toggle_fan_power
       - script.toggle_fan_speed_up
       - script.toggle_fan_speed_down
@@ -32,7 +32,7 @@ homekit:
       - input_boolean.adwin_present
       - input_boolean.shiuan_present
   entity_config:
-    media_player.room_tv:
+    media_player.living_room_tv:
       feature_list:
         - feature: on_off
         - feature: toggle_mute

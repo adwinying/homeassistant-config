@@ -2,10 +2,10 @@
 # Change input source for TV
 #
 
-ENTITY     = 'media_player.room_tv'
+ENTITY     = 'media_player.living_room_tv'
 
 MQTT_TOPIC_CMD    = 'cmnd/IR_Bridge/IRSEND'
-MQTT_TOPIC_SOURCE = 'homeassistant/media_player/room_tv'
+MQTT_TOPIC_SOURCE = 'homeassistant/media_player/living_room_tv'
 
 CMD_UP     = '{"Protocol":"NEC","Bits":32,"Data":"0x00FDB847"}'
 CMD_DOWN   = '{"Protocol":"NEC","Bits":32,"Data":"0x00FDA25D"}'

@@ -36,14 +36,19 @@ cards:
       - switch.bathroom_mirror
 
 
-  - type: entities
-    title: Living Room
-    icon: mdi:sofa
-    entities:
-      - light.room_light
-      - light.room_brightness
-      - light.room_night_light
-      - switch.room_tv_plug
+  - type: vertical-stack
+    cards:
+      - type: entities
+        title: Living Room
+        icon: mdi:sofa
+        entities:
+          - light.living_room_light
+          - light.living_room_brightness
+          - light.living_room_night_light
+          - switch.living_room_tv_plug
+
+      - type: media-control
+        entity: media_player.living_room_tv
 
 
   - type: entities
@@ -63,10 +68,6 @@ cards:
       - sensor.closet_door_battery
       - binary_sensor.closet_door_battery_low
       - switch.closet_light
-
-
-  - type: media-control
-    entity: media_player.room_tv
 
 
   - type: vertical-stack
