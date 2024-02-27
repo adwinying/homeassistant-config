@@ -1,0 +1,26 @@
+#
+# Storeroom Sensor Door
+#
+
+mqtt:
+  binary_sensor:
+    - name: Storeroom Door
+      state_topic: zigbee2mqtt/Storeroom_SensorDoor
+      value_template: '{{ value_json.contact }}'
+      payload_on: false
+      payload_off: true
+      device_class: door
+
+    - name: Storeroom Door Battery Low
+      state_topic: zigbee2mqtt/Storeroom_SensorDoor
+      value_template: '{{ value_json.battery_low }}'
+      payload_on: true
+      payload_off: false
+      device_class: battery
+
+  sensor:
+    - name: Storeroom Door Battery
+      state_topic: zigbee2mqtt/Storeroom_SensorDoor
+      value_template: '{{ value_json.battery }}'
+      unit_of_measurement: '%'
+      device_class: battery

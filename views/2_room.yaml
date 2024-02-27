@@ -18,6 +18,14 @@ cards:
 
 
   - type: entities
+    title: Storeroom
+    entities:
+      - binary_sensor.storeroom_door
+      - sensor.storeroom_door_battery
+      - binary_sensor.storeroom_door_battery_low
+
+
+  - type: entities
     title: Living Room
     entities:
       - light.room_light
