@@ -23,6 +23,7 @@ cards:
       - binary_sensor.storeroom_door
       - sensor.storeroom_door_battery
       - binary_sensor.storeroom_door_battery_low
+      - switch.storeroom_light
 
 
   - type: entities

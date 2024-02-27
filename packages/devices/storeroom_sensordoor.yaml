@@ -24,3 +24,32 @@ mqtt:
       value_template: '{{ value_json.battery }}'
       unit_of_measurement: '%'
       device_class: battery
+
+automation:
+  #
+  # Switch on Storeroom Light when Storeroom Door is opened
+  #
+  - alias: Switch on Storeroom Light when Storeroom Door is opened
+    trigger:
+      platform: state
+      entity_id: binary_sensor.storeroom_door
+      from: "off"
+      to: "on"
+    action:
+      service: switch.turn_on
+      target:
+        entity_id: switch.storeroom_light
+
+  #
+  # Switch off Storeroom Light when Storeroom Door is closed
+  #
+  - alias: Switch off Storeroom Light when Storeroom Door is closed
+    trigger:
+      platform: state
+      entity_id: binary_sensor.storeroom_door
+      from: "on"
+      to: "off"
+    action:
+      service: switch.turn_off
+      target:
+        entity_id: switch.storeroom_light

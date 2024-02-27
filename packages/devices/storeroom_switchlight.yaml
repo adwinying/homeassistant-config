@@ -1,0 +1,12 @@
+#
+# Storeroom Switch Light
+#
+
+mqtt:
+  switch:
+    - name: Storeroom Light
+      command_topic: zigbee2mqtt/Storeroom_SwitchLight/set
+      state_topic: zigbee2mqtt/Storeroom_SwitchLight
+      value_template: "{{ value_json.state }}"
+      payload_on: "ON"
+      payload_off: "OFF"
