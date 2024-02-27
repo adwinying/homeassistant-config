@@ -1,0 +1,12 @@
+#
+# Bathroom Switch Mirror
+#
+
+mqtt:
+  switch:
+    - name: Bathroom Mirror
+      command_topic: zigbee2mqtt/Bathroom_SwitchMirror/set
+      state_topic: zigbee2mqtt/Bathroom_SwitchMirror
+      value_template: "{{ value_json.state }}"
+      payload_on: "ON"
+      payload_off: "OFF"

@@ -31,6 +31,7 @@ cards:
     icon: mdi:shower
     entities:
       - switch.bathroom_light
+      - switch.bathroom_mirror
 
 
   - type: entities
