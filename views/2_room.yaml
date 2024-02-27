@@ -27,6 +27,13 @@ cards:
 
 
   - type: entities
+    title: Bathroom
+    icon: mdi:shower
+    entities:
+      - switch.bathroom_light
+
+
+  - type: entities
     title: Living Room
     entities:
       - light.room_light
