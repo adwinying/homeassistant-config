@@ -3,3 +3,8 @@ panel_iframe:
     icon: mdi:bee
     title: "Zigbee2MQTT"
     url: "https://zigbee2mqtt.iadw.in"
+
+  valetudo:
+    icon: mdi:robot-vacuum
+    title: "Valetudo"
+    url: "https://valetudo.iadw.in"
