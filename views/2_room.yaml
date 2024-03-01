@@ -121,6 +121,34 @@ cards:
               service: script.toggle_fan_oscil_vertical
 
 
+  - type: vertical-stack
+    cards:
+    - type: entities
+      title: Room Vacuum
+      show_header_toggle: false
+      entities:
+        - vacuum.dave
+        - sensor.dave_battery_level
+        - binary_sensor.dave_mop_attachment
+        - select.dave_mode
+        - select.dave_water_usage
+        - number.dave_speaker_volume
+        - sensor.dave_events
+
+    - type: entities
+      title: Room Spot Vacuum
+      show_header_toggle: false
+      entities:
+        - input_boolean.dave_spot_cleaning_target_hallway
+        - input_boolean.dave_spot_cleaning_target_kitchen
+        - input_boolean.dave_spot_cleaning_target_bathroom
+        - input_boolean.dave_spot_cleaning_target_workspace
+        - input_boolean.dave_spot_cleaning_target_living_room
+        - input_boolean.dave_spot_cleaning_target_bedroom
+        - input_select.dave_spot_cleaning_iterations
+        - script.dave_spot_cleaning
+
+
   - type: entities
     title: Room Sensors
     entities:

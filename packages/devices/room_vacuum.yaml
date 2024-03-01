@@ -1,0 +1,189 @@
+#
+# Room Vacuum
+#
+
+mqtt:
+  vacuum:
+    - name: Dave
+      supported_features:
+        - battery
+        - status
+        - start
+        - stop
+        - pause
+        - return_home
+        - fan_speed
+        - locate
+      state_topic: valetudo/Dave/hass/Dave_vacuum/state
+      command_topic: valetudo/Dave/hass/Dave_vacuum/command
+      payload_start: START
+      payload_pause: PAUSE
+      payload_return_to_base: HOME
+      payload_stop: STOP
+      payload_locate: LOCATE
+      set_fan_speed_topic: valetudo/Dave/FanSpeedControlCapability/preset/set
+      fan_speed_list:
+        - low
+        - medium
+        - high
+        - max
+      availability_topic: valetudo/Dave/$state
+      payload_available: ready
+      payload_not_available: lost
+
+  select:
+    - name: Dave Mode
+      icon: mdi:developer-board
+      entity_category: config
+      state_topic: valetudo/Dave/OperationModeControlCapability/preset
+      value_template: "{{ value }}"
+      command_topic: valetudo/Dave/OperationModeControlCapability/preset/set
+      options:
+        - vacuum
+        - mop
+        - vacuum_and_mop
+      availability_topic: valetudo/Dave/$state
+      payload_available: ready
+      payload_not_available: lost
+
+    - name: Dave Water Usage
+      icon: mdi:water-pump
+      entity_category: config
+      state_topic: valetudo/Dave/WaterUsageControlCapability/preset
+      value_template: "{{ value }}"
+      command_topic: valetudo/Dave/WaterUsageControlCapability/preset/set
+      options:
+        - low
+        - medium
+        - high
+      availability_topic: valetudo/Dave/$state
+      payload_available: ready
+      payload_not_available: lost
+
+  number:
+    - name: Dave Speaker Volume
+      icon: mdi:volume-source
+      entity_category: config
+      state_topic: valetudo/Dave/SpeakerVolumeControlCapability/value
+      command_topic: valetudo/Dave/SpeakerVolumeControlCapability/value/set
+      availability_topic: valetudo/Dave/$state
+      payload_available: ready
+      payload_not_available: lost
+
+  binary_sensor:
+    - name: Dave Mop Attachment
+      entity_category: diagnostic
+      state_topic: valetudo/Dave/AttachmentStateAttribute/mop
+      payload_off: "false"
+      payload_on: "true"
+      availability_topic: valetudo/Dave/$state
+      payload_available: ready
+      payload_not_available: lost
+
+  sensor:
+    - name: Dave Battery Level
+      icon: mdi:battery
+      entity_category: diagnostic
+      device_class: battery
+      state_topic: valetudo/Dave/BatteryStateAttribute/level
+      unit_of_measurement: "%"
+      availability_topic: valetudo/Dave/$state
+      payload_available: ready
+      payload_not_available: lost
+
+    - name: Dave Events
+      icon: mdi:bell
+      state_topic: valetudo/Dave/hass/Dave_sensor_ValetudoEvents
+      json_attributes_topic: valetudo/Dave/ValetudoEvents/valetudo_events
+      json_attributes_template: "{{ value }}"
+      availability_topic: valetudo/Dave/$state
+      payload_available: ready
+      payload_not_available: lost
+
+#
+# Spot Cleaning
+#
+input_boolean:
+  dave_spot_cleaning_target_hallway:
+    name: Hallway
+    icon: mdi:transit-connection
+  dave_spot_cleaning_target_kitchen:
+    name: Kitchen
+    icon: mdi:fridge
+  dave_spot_cleaning_target_bathroom:
+    name: Bathroom
+    icon: mdi:shower
+  dave_spot_cleaning_target_workspace:
+    name: Workspace
+    icon: mdi:desk
+  dave_spot_cleaning_target_living_room:
+    name: Living Room
+    icon: mdi:sofa
+  dave_spot_cleaning_target_bedroom:
+    name: Bedroom
+    icon: mdi:bed-double
+
+homeassistant:
+  customize:
+    input_boolean.dave_spot_cleaning_target_hallway:
+      room_id: 4
+    input_boolean.dave_spot_cleaning_target_kitchen:
+      room_id: 1
+    input_boolean.dave_spot_cleaning_target_bathroom:
+      room_id: 3
+    input_boolean.dave_spot_cleaning_target_workspace:
+      room_id: 6
+    input_boolean.dave_spot_cleaning_target_living_room:
+      room_id: 7
+    input_boolean.dave_spot_cleaning_target_bedroom:
+      room_id: 5
+
+group:
+  dave_spot_cleaning_targets:
+    name: Dave Spot Cleaning Targets
+    entities:
+      - input_boolean.dave_spot_cleaning_target_hallway
+      - input_boolean.dave_spot_cleaning_target_kitchen
+      - input_boolean.dave_spot_cleaning_target_bathroom
+      - input_boolean.dave_spot_cleaning_target_workspace
+      - input_boolean.dave_spot_cleaning_target_living_room
+      - input_boolean.dave_spot_cleaning_target_bedroom
+
+input_select:
+  dave_spot_cleaning_iterations:
+    name: Dave Spot Cleaning Iterations
+    icon: mdi:repeat-variant
+    options:
+      - 1
+      - 2
+      - 3
+      - 4
+
+script:
+  dave_spot_cleaning:
+    icon: mdi:play-box
+    alias: Dave Start Spot Cleaning
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: valetudo/Dave/MapSegmentationCapability/clean/set
+          payload_template: '{ "segment_ids": [{{ expand("group.dave_spot_cleaning_targets") | selectattr("state","eq","on") | map(attribute="attributes.room_id") | join(",") }}], "iterations": {{ states.input_select.dave_spot_cleaning_iterations.state}} }'
+
+#
+# Schedule cleaning
+#
+automation:
+  - alias: Start vacuum at 9:30AM eveery Monday, Wednesday, Friday
+    trigger:
+      platform: time
+      at: "09:30:00"
+    condition:
+      condition: time
+      weekday:
+        - mon
+        - wed
+        - fri
+    action:
+      - service: vacuum.start
+        data:
+          entity_id: vacuum.dave
