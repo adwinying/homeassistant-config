@@ -100,6 +100,21 @@ mqtt:
       payload_available: ready
       payload_not_available: lost
 
+  # For homekit
+  switch:
+    - name: Dave Vacuum
+      state_topic: valetudo/Dave/hass/Dave_vacuum/state
+      value_template: "{{ value_json.state }}"
+      state_on: cleaning
+      state_off: docked
+      command_topic: valetudo/Dave/hass/Dave_vacuum/command
+      payload_on: START
+      payload_off: HOME
+      availability_topic: valetudo/Dave/$state
+      payload_available: ready
+      payload_not_available: lost
+
+
 #
 # Spot Cleaning
 #

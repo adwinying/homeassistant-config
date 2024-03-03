@@ -41,6 +41,8 @@ homekit:
       - script.toggle_fan_speed_down
       - script.toggle_fan_oscil_horizontal
       - script.toggle_fan_oscil_vertical
+      # Room Vacuum
+      - switch.dave_vacuum
       # Misc
       - input_boolean.adwin_present
       - input_boolean.shiuan_present
