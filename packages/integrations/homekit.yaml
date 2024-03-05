@@ -16,6 +16,8 @@ homekit:
       - switch.bathroom_mirror
       - switch.bathroom_dry
       - switch.bathroom_wet
+      # Workspace
+      - switch.workspace_light
       # Living Room
       - light.living_room_light
       - light.living_room_night_light

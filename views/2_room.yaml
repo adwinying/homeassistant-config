@@ -37,6 +37,13 @@ cards:
       - switch.bathroom_wet
 
 
+  - type: entities
+    title: Workspace
+    icon: mdi:desk
+    entities:
+      - switch.workspace_light
+
+
   - type: vertical-stack
     cards:
       - type: entities

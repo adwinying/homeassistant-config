@@ -1,0 +1,12 @@
+#
+# Workspace Light
+#
+
+mqtt:
+  switch:
+    - name: Workspace Light
+      icon: mdi:lightbulb
+      command_topic: cmnd/Workspace_Light/POWER
+      state_topic: stat/Workspace_Light/POWER
+      payload_on: "ON"
+      payload_off: "OFF"
