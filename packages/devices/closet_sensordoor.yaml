@@ -26,9 +26,6 @@ mqtt:
       device_class: battery
 
 automation:
-  #
-  # Switch on Closet Light when Closet Door is opened
-  #
   - alias: Switch on Closet Light when Closet Door is opened
     trigger:
       platform: state
@@ -40,9 +37,6 @@ automation:
       target:
         entity_id: switch.closet_light
 
-  #
-  # Switch off Closet Light when Closet Door is closed
-  #
   - alias: Switch off Closet Light when Closet Door is closed
     trigger:
       platform: state

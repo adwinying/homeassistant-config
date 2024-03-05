@@ -1,0 +1,55 @@
+#
+# Bathroom Sensor Motion
+#
+
+mqtt:
+  binary_sensor:
+    - name: Bathroom Motion
+      state_topic: zigbee2mqtt/Bathroom_SensorMotion
+      value_template: '{{ value_json.occupancy }}'
+      payload_on: true
+      payload_off: false
+      device_class: motion
+
+    - name: Bathroom Motion Battery Low
+      entity_category: diagnostic
+      state_topic: zigbee2mqtt/Bathroom_SensorMotion
+      value_template: '{{ value_json.battery_low }}'
+      payload_on: true
+      payload_off: false
+      device_class: battery
+
+  sensor:
+    - name: Bathroom Motion Battery
+      entity_category: diagnostic
+      state_class: measurement
+      state_topic: zigbee2mqtt/Bathroom_SensorMotion
+      value_template: '{{ value_json.battery }}'
+      unit_of_measurement: '%'
+      device_class: battery
+
+automation:
+  - alias: Switch on Bathroom Dry when Bathroom Motion is detected
+    trigger:
+      platform: state
+      entity_id: binary_sensor.bathroom_motion
+      from: "off"
+      to: "on"
+    action:
+      service: switch.turn_on
+      target:
+        entity_id: switch.bathroom_dry
+
+  - alias: Switch off Bathroom lights when Bathroom Motion is not detected
+    trigger:
+      platform: state
+      entity_id: binary_sensor.bathroom_motion
+      from: "on"
+      to: "off"
+    action:
+      - service: switch.turn_off
+        target:
+          entity_id: switch.bathroom_dry
+      - service: switch.turn_off
+        target:
+          entity_id: switch.bathroom_mirror
