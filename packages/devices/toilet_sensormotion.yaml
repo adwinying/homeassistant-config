@@ -1,0 +1,29 @@
+#
+# Toilet Sensor Motion
+#
+
+mqtt:
+  binary_sensor:
+    - name: Toilet Motion
+      state_topic: zigbee2mqtt/Toilet_SensorMotion
+      value_template: '{{ value_json.occupancy }}'
+      payload_on: true
+      payload_off: false
+      device_class: motion
+
+    - name: Toilet Motion Battery Low
+      entity_category: diagnostic
+      state_topic: zigbee2mqtt/Toilet_SensorMotion
+      value_template: '{{ value_json.battery_low }}'
+      payload_on: true
+      payload_off: false
+      device_class: battery
+
+  sensor:
+    - name: Toilet Motion Battery
+      entity_category: diagnostic
+      state_class: measurement
+      state_topic: zigbee2mqtt/Toilet_SensorMotion
+      value_template: '{{ value_json.battery }}'
+      unit_of_measurement: '%'
+      device_class: battery

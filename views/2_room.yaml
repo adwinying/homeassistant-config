@@ -29,6 +29,15 @@ cards:
 
 
   - type: entities
+    title: Toilet
+    icon: mdi:toilet
+    entities:
+      - binary_sensor.toilet_motion
+      - sensor.toilet_motion_battery
+      - binary_sensor.toilet_motion_battery_low
+
+
+  - type: entities
     title: Bathroom
     icon: mdi:shower
     entities:
