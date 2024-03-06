@@ -141,11 +141,11 @@ input_boolean:
 homeassistant:
   customize:
     input_boolean.dave_spot_cleaning_target_hallway:
-      room_id: 4
-    input_boolean.dave_spot_cleaning_target_kitchen:
-      room_id: 1
-    input_boolean.dave_spot_cleaning_target_bathroom:
       room_id: 3
+    input_boolean.dave_spot_cleaning_target_kitchen:
+      room_id: 2
+    input_boolean.dave_spot_cleaning_target_bathroom:
+      room_id: 1
     input_boolean.dave_spot_cleaning_target_workspace:
       room_id: 6
     input_boolean.dave_spot_cleaning_target_living_room:
