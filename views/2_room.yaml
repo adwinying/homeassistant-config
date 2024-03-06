@@ -35,6 +35,8 @@ cards:
       - binary_sensor.toilet_motion
       - sensor.toilet_motion_battery
       - binary_sensor.toilet_motion_battery_low
+      - switch.toilet_light
+      - switch.toilet_ventilation
 
 
   - type: entities
