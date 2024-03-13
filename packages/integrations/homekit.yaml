@@ -16,6 +16,9 @@ homekit:
       - binary_sensor.toilet_motion
       - switch.toilet_light
       - switch.toilet_ventilation
+      # Kitchen
+      - switch.kitchen_light
+      - switch.kitchen_counter
       # Bathroom
       - binary_sensor.bathroom_motion
       - switch.bathroom_mirror

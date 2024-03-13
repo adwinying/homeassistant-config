@@ -40,6 +40,14 @@ cards:
 
 
   - type: entities
+    title: Kitchen
+    icon: mdi:fridge
+    entities:
+      - switch.kitchen_light
+      - switch.kitchen_counter
+
+
+  - type: entities
     title: Bathroom
     icon: mdi:shower
     entities:

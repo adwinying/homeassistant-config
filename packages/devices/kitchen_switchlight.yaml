@@ -1,0 +1,21 @@
+#
+# Kitchen Switch Light
+#
+
+mqtt:
+  switch:
+    - name: Kitchen Light
+      icon: mdi:lightbulb
+      command_topic: zigbee2mqtt/Kitchen_SwitchLight/right/set
+      state_topic: zigbee2mqtt/Kitchen_SwitchLight
+      value_template: "{{ value_json.state_right }}"
+      payload_on: "ON"
+      payload_off: "OFF"
+
+    - name: Kitchen Counter
+      icon: mdi:lightbulb
+      command_topic: zigbee2mqtt/Kitchen_SwitchLight/left/set
+      state_topic: zigbee2mqtt/Kitchen_SwitchLight
+      value_template: "{{ value_json.state_left }}"
+      payload_on: "ON"
+      payload_off: "OFF"
