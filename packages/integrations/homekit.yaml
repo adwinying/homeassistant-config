@@ -14,6 +14,7 @@ homekit:
       - switch.storeroom_light
       # Toilet
       - binary_sensor.toilet_motion
+      - switch.toilet_plug
       - switch.toilet_light
       - switch.toilet_ventilation
       # Kitchen

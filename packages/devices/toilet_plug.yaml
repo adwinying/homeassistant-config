@@ -1,0 +1,30 @@
+#
+# Toilet Plug
+#
+
+mqtt:
+  switch:
+    - name: Toilet Plug
+      command_topic: zigbee2mqtt/Toilet_Plug/set
+      state_topic: zigbee2mqtt/Toilet_Plug
+      payload_on: "ON"
+      payload_off: "OFF"
+      value_template: "{{ value_json.state }}"
+
+  #
+  # Energy Consumption Sensors
+  #
+  sensor:
+    - name: Toilet Plug Energy
+      state_topic: zigbee2mqtt/Toilet_Plug
+      value_template: "{{ value_json.energy }}"
+      unit_of_measurement: kWh
+      device_class: energy
+      state_class: total_increasing
+
+    - name: Toilet Plug Power
+      state_topic: zigbee2mqtt/Toilet_Plug
+      value_template: "{{ value_json.power }}"
+      unit_of_measurement: W
+      entity_category: diagnostic
+      state_class: measurement

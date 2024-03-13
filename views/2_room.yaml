@@ -35,6 +35,9 @@ cards:
       - binary_sensor.toilet_motion
       - sensor.toilet_motion_battery
       - binary_sensor.toilet_motion_battery_low
+      - sensor.toilet_plug_energy
+      - sensor.toilet_plug_power
+      - switch.toilet_plug
       - switch.toilet_light
       - switch.toilet_ventilation
 
