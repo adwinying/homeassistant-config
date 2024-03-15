@@ -17,6 +17,7 @@ homekit:
       - switch.toilet_plug
       - switch.toilet_light
       - switch.toilet_ventilation
+      - switch.toilet_hallway
       # Kitchen
       - switch.kitchen_light
       - switch.kitchen_counter

@@ -40,6 +40,7 @@ cards:
       - switch.toilet_plug
       - switch.toilet_light
       - switch.toilet_ventilation
+      - switch.toilet_hallway
 
 
   - type: entities

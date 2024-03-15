@@ -1,0 +1,21 @@
+#
+# Hallway Switch Light
+#
+
+mqtt:
+  switch:
+    - name: Kitchen Hallway Remote
+      icon: mdi:lightbulb
+      command_topic: zigbee2mqtt/Hallway_SwitchLight/right/set
+      state_topic: zigbee2mqtt/Hallway_SwitchLight
+      value_template: "{{ value_json.state_right }}"
+      payload_on: "ON"
+      payload_off: "OFF"
+
+    - name: Toilet Hallway
+      icon: mdi:lightbulb
+      command_topic: zigbee2mqtt/Hallway_SwitchLight/left/set
+      state_topic: zigbee2mqtt/Hallway_SwitchLight
+      value_template: "{{ value_json.state_left }}"
+      payload_on: "ON"
+      payload_off: "OFF"
