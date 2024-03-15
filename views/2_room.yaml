@@ -49,6 +49,7 @@ cards:
     entities:
       - switch.kitchen_light
       - switch.kitchen_counter
+      - switch.kitchen_hallway
 
 
   - type: entities

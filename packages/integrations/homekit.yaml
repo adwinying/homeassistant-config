@@ -21,6 +21,7 @@ homekit:
       # Kitchen
       - switch.kitchen_light
       - switch.kitchen_counter
+      - switch.kitchen_hallway
       # Bathroom
       - binary_sensor.bathroom_motion
       - switch.bathroom_mirror
