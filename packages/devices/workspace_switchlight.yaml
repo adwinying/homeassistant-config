@@ -19,3 +19,49 @@ mqtt:
       value_template: "{{ value_json.state_left }}"
       payload_on: "ON"
       payload_off: "OFF"
+
+automation:
+  - alias: Three Way Switch for Kitchen Hallway and Kitchen Hallway Remote
+    trigger:
+      - platform: state
+        entity_id: &entities
+          - switch.kitchen_hallway
+          - switch.kitchen_hallway_remote
+        from: &states
+          - 'on'
+          - 'off'
+        to: *states
+    variables:
+      entities: *entities
+      value: "{{ trigger.to_state.state }}"
+      targets: "{{ expand(entities) | rejectattr('entity_id','eq',trigger.entity_id) | selectattr('state','!=',value) | map(attribute='entity_id') | list }}"
+    condition:
+      - condition: template
+        value_template: "{{ targets not in ([], none) }}"
+    action:
+      - service: "homeassistant.turn_{{ value }}"
+        target:
+          entity_id: "{{ targets }}"
+
+
+  - alias: Sync Living Room Light and Living Room Light Remote
+    trigger:
+      - platform: state
+        entity_id: &entities2
+          - light.living_room_light
+          - switch.living_room_light_remote
+        from: &states2
+          - 'on'
+          - 'off'
+        to: *states2
+    variables:
+      entities: *entities2
+      value: "{{ trigger.to_state.state }}"
+      targets: "{{ expand(entities) | rejectattr('entity_id','eq',trigger.entity_id) | selectattr('state','!=',value) | map(attribute='entity_id') | list }}"
+    condition:
+      - condition: template
+        value_template: "{{ targets not in ([], none) }}"
+    action:
+      - service: "homeassistant.turn_{{ value }}"
+        target:
+          entity_id: "{{ targets }}"
