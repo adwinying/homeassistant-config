@@ -8,7 +8,8 @@ mqtt:
       state_topic: zigbee2mqtt/Toilet_SensorMotion
       value_template: '{{ value_json.occupancy }}'
       payload_on: true
-      payload_off: false
+      payload_off: "VOID"
+      off_delay: 60
       device_class: motion
 
     - name: Toilet Motion Battery Low
