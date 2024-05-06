@@ -9,7 +9,7 @@ mqtt:
       value_template: '{{ value_json.occupancy }}'
       payload_on: true
       payload_off: "VOID"
-      off_delay: 60
+      off_delay: 70
       device_class: motion
 
     - name: Toilet Motion Battery Low
