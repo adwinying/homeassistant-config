@@ -41,6 +41,8 @@ homekit:
       - light.bedroom_lights
       # Closet
       - binary_sensor.closet_door
+      - sensor.closet_temperature
+      - sensor.closet_humidity
       - switch.closet_light
       # Room Sensor
       - sensor.room_temperature

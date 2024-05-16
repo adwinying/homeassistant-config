@@ -107,6 +107,9 @@ cards:
       - binary_sensor.closet_door
       - sensor.closet_door_battery
       - binary_sensor.closet_door_battery_low
+      - sensor.closet_temperature
+      - sensor.closet_humidity
+      - sensor.closet_temperature_battery
       - switch.closet_light
 
 
