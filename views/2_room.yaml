@@ -68,6 +68,8 @@ cards:
     title: Workspace
     icon: mdi:desk
     entities:
+      - light.workspace_pigeonhole
+      - select.workspace_pigeonhole_preset
       - switch.workspace_light
 
 

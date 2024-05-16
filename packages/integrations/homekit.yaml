@@ -28,6 +28,8 @@ homekit:
       - switch.bathroom_dry
       - switch.bathroom_wet
       # Workspace
+      - light.workspace_pigeonhole
+      - select.workspace_pigeonhole_preset
       - switch.workspace_light
       # Living Room
       - light.living_room_light
