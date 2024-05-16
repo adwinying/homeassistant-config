@@ -11,6 +11,8 @@ homekit:
       - script.open_sesame
       # Storeroom
       - binary_sensor.storeroom_door
+      - sensor.storeroom_temperature
+      - sensor.storeroom_humidity
       - switch.storeroom_light
       # Toilet
       - binary_sensor.toilet_motion

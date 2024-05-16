@@ -25,6 +25,9 @@ cards:
       - binary_sensor.storeroom_door
       - sensor.storeroom_door_battery
       - binary_sensor.storeroom_door_battery_low
+      - sensor.storeroom_temperature
+      - sensor.storeroom_humidity
+      - sensor.storeroom_temperature_battery
       - switch.storeroom_light
 
 
