@@ -24,6 +24,8 @@ homekit:
       - switch.kitchen_hallway
       # Bathroom
       - binary_sensor.bathroom_motion
+      - sensor.bathroom_temperature
+      - sensor.bathroom_humidity
       - switch.bathroom_mirror
       - switch.bathroom_dry
       - switch.bathroom_wet

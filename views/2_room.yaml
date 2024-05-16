@@ -59,6 +59,9 @@ cards:
       - binary_sensor.bathroom_motion
       - sensor.bathroom_motion_battery
       - binary_sensor.bathroom_motion_battery_low
+      - sensor.bathroom_temperature
+      - sensor.bathroom_humidity
+      - sensor.bathroom_temperature_battery
       - switch.bathroom_mirror
       - switch.bathroom_dry
       - switch.bathroom_wet
