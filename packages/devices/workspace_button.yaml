@@ -1,0 +1,41 @@
+#
+# Workspace Button
+#
+
+mqtt:
+  sensor:
+    - name: Workspace Button Action
+      icon: mdi:gesture-double-tap
+      state_topic: zigbee2mqtt/Workspace_Button
+      value_template: "{{ value_json.action }}"
+      entity_category: diagnostic
+
+switch:
+  - name: Workspace Light Group
+    platform: group
+    entities:
+      - switch.workspace_light
+      - switch.workspace_spotlight
+
+automation:
+  - alias: Toggle Workspace Light when Single Workspace Button Action is detected
+    trigger:
+      platform: state
+      entity_id: sensor.workspace_button_action
+      not_from: "single"
+      to: "single"
+    action:
+      - service: switch.toggle
+        target:
+          entity_id: switch.workspace_light
+
+  - alias: Toggle Workspace Light Group when Double Workspace Button Action is detected
+    trigger:
+      platform: state
+      entity_id: sensor.workspace_button_action
+      not_from: "double"
+      to: "double"
+    action:
+      - service: switch.toggle
+        target:
+          entity_id: switch.workspace_light_group
