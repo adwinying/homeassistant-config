@@ -35,6 +35,7 @@ homekit:
       - light.workspace_pigeonhole
       - select.workspace_pigeonhole_preset
       - switch.workspace_light
+      - switch.workspace_spotlight
       # Living Room
       - light.living_room_light
       - light.living_room_night_light
