@@ -1,0 +1,9 @@
+views:
+  - title: Map
+    type: panel
+    cards:
+      - type: map
+        entities:
+          - person.adwin
+          - person.shiuan
+        auto_fit: true

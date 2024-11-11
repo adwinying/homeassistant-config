@@ -4,3 +4,10 @@
 
 lovelace:
   mode: yaml
+
+  dashboards:
+    lovelace-map:
+      mode: yaml
+      title: Map
+      icon: mdi:tooltip-account
+      filename: dashboards/map.yaml
