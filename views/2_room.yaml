@@ -6,199 +6,299 @@ badges:
   - entity: person.adwin
   - entity: person.ws
 
-cards:
-  - type: entities
-    title: Entrance
-    icon: mdi:gate
-    entities:
-      - entity: lock.entrance_door
-      - entity: button.entrance_auto_lock
-        icon: mdi:light-switch
-      - entity: script.open_sesame
-        icon: mdi:light-switch
-
-
-  - type: entities
-    title: Storeroom
-    icon: mdi:archive
-    entities:
-      - binary_sensor.storeroom_door
-      - sensor.storeroom_door_battery
-      - binary_sensor.storeroom_door_battery_low
-      - sensor.storeroom_temperature
-      - sensor.storeroom_humidity
-      - sensor.storeroom_temperature_battery
-      - switch.storeroom_light
-
-
-  - type: entities
-    title: Toilet
-    icon: mdi:toilet
-    entities:
-      - binary_sensor.toilet_motion
-      - sensor.toilet_motion_battery
-      - binary_sensor.toilet_motion_battery_low
-      - sensor.toilet_plug_energy
-      - sensor.toilet_plug_power
-      - switch.toilet_plug
-      - switch.toilet_light
-      - switch.toilet_ventilation
-      - switch.toilet_hallway
-
-
-  - type: entities
-    title: Kitchen
-    icon: mdi:fridge
-    entities:
-      - switch.kitchen_light
-      - switch.kitchen_counter
-      - switch.kitchen_hallway
-
-
-  - type: entities
-    title: Bathroom
-    icon: mdi:shower
-    entities:
-      - binary_sensor.bathroom_motion
-      - sensor.bathroom_motion_battery
-      - binary_sensor.bathroom_motion_battery_low
-      - sensor.bathroom_temperature
-      - sensor.bathroom_humidity
-      - sensor.bathroom_temperature_battery
-      - switch.bathroom_mirror
-      - switch.bathroom_dry
-      - switch.bathroom_wet
-
-
-  - type: entities
-    title: Workspace
-    icon: mdi:desk
-    entities:
-      - light.workspace_pigeonhole
-      - select.workspace_pigeonhole_preset
-      - switch.workspace_light
-      - switch.workspace_spotlight
-
-
-  - type: vertical-stack
+sections:
+  - type: grid
     cards:
-      - type: entities
-        title: Living Room
+      - type: heading
+        heading: Entrance
+        icon: mdi:gate
+      - type: tile
+        icon: mdi:light-switch
+        vertical: true
+        entity: script.open_sesame
+      - type: tile
+        entity: lock.entrance_door
+      - type: tile
+        icon: mdi:light-switch
+        entity: button.entrance_auto_lock
+
+  - type: grid
+    cards:
+      - type: heading
+        heading: Storeroom
+        icon: mdi:archive
+        badges:
+          - type: entity
+            entity: binary_sensor.storeroom_door
+            tap_action:
+              action: more-info
+          - type: entity
+            entity: sensor.storeroom_temperature
+            tap_action:
+              action: more-info
+          - type: entity
+            entity: sensor.storeroom_humidity
+            tap_action:
+              action: more-info
+      - type: tile
+        vertical: true
+        entity: switch.storeroom_light
+      - type: tile
+        entity: sensor.storeroom_door_battery
+      - type: tile
+        entity: sensor.storeroom_temperature_battery
+
+  - type: grid
+    cards:
+      - type: heading
+        heading: Toilet
+        icon: mdi:toilet
+        badges:
+          - type: entity
+            entity: binary_sensor.toilet_motion
+            tap_action:
+              action: more-info
+      - type: tile
+        vertical: true
+        entity: switch.toilet_light
+      - type: tile
+        entity: switch.toilet_ventilation
+      - type: tile
+        entity: switch.toilet_hallway
+      - type: tile
+        vertical: true
+        entity: switch.toilet_plug
+      - type: tile
+        entity: sensor.toilet_plug_energy
+      - type: tile
+        entity: sensor.toilet_plug_power
+      - type: tile
+        entity: sensor.toilet_motion_battery
+
+  - type: grid
+    cards:
+      - type: heading
+        heading: Kitchen
+        icon: mdi:fridge
+      - type: tile
+        entity: switch.kitchen_light
+      - type: tile
+        entity: switch.kitchen_counter
+      - type: tile
+        entity: switch.kitchen_hallway
+
+  - type: grid
+    cards:
+      - type: heading
+        heading: Bathroom
+        icon: mdi:shower
+        badges:
+          - type: entity
+            entity: binary_sensor.bathroom_motion
+            tap_action:
+              action: more-info
+          - type: entity
+            entity: sensor.bathroom_temperature
+            tap_action:
+              action: more-info
+          - type: entity
+            entity: sensor.bathroom_humidity
+            tap_action:
+              action: more-info
+      - type: tile
+        vertical: true
+        entity: switch.bathroom_mirror
+      - type: tile
+        entity: switch.bathroom_dry
+      - type: tile
+        entity: switch.bathroom_wet
+      - type: tile
+        entity: sensor.bathroom_motion_battery
+      - type: tile
+        entity: sensor.bathroom_temperature_battery
+
+  - type: grid
+    cards:
+      - type: heading
+        heading: Workspace
+        icon: mdi:desk
+        badges:
+          - type: entity
+            entity: sensor.room_temperature
+            tap_action:
+              action: more-info
+          - type: entity
+            entity: sensor.room_humidity
+            tap_action:
+              action: more-info
+          - type: entity
+            entity: sensor.room_carbon_dioxide
+            tap_action:
+              action: more-info
+      - type: tile
+        entity: switch.workspace_light
+      - type: tile
+        entity: switch.workspace_spotlight
+      - type: tile
+        entity: light.workspace_pigeonhole
+      - type: tile
+        entity: select.workspace_pigeonhole_preset
+
+  - type: grid
+    cards:
+      - type: heading
+        heading: Living Room
         icon: mdi:sofa
-        entities:
-          - light.living_room_light
-          - light.living_room_brightness
-          - light.living_room_night_light
-          - switch.living_room_tv_plug
-
-      - type: media-control
+      - type: tile
+        vertical: true
+        entity: light.living_room_light
+      - type: tile
+        entity: light.living_room_brightness
+      - type: tile
+        entity: light.living_room_night_light
+      - type: tile
+        vertical: true
         entity: media_player.living_room_tv
+      - type: tile
+        entity: switch.living_room_tv_plug
 
-
-  - type: entities
-    title: Bedroom
-    icon: mdi:bed-double
-    entities:
-      - light.bedroom_lights
-      - light.bedroom_light_inner
-      - light.bedroom_light_outer
-
-
-  - type: entities
-    title: Closet
-    icon: mdi:hanger
-    entities:
-      - binary_sensor.closet_door
-      - sensor.closet_door_battery
-      - binary_sensor.closet_door_battery_low
-      - sensor.closet_temperature
-      - sensor.closet_humidity
-      - sensor.closet_temperature_battery
-      - switch.closet_light
-
-
-  - type: vertical-stack
+  - type: grid
     cards:
-      - type: entities
-        title: Room AC
-        show_header_toggle: false
-        entities:
-          - entity: switch.room_ac_auto
-            icon: mdi:thermometer-auto
-          - entity: switch.room_ac_cool
-            icon: mdi:snowflake
-          - entity: switch.room_ac_heat
-            icon: mdi:fire
-          - entity: switch.room_ac_dry
-            icon: mdi:water
+      - type: heading
+        heading: Bedroom
+        icon: mdi:bed-double
+      - type: tile
+        vertical: true
+        entity: light.bedroom_lights
+      - type: tile
+        entity: light.bedroom_light_inner
+      - type: tile
+        entity: light.bedroom_light_outer
 
-      - type: grid
-        title: Room Fan
-        cards:
-          - type: button
-            entity: script.toggle_fan_power
-            show_name: false
-            tap_action:
-              action: call-service
-              service: script.toggle_fan_power
-          - type: button
-            entity: script.toggle_fan_speed_up
-            show_name: false
-            tap_action:
-              action: call-service
-              service: script.toggle_fan_speed_up
-          - type: button
-            entity: script.toggle_fan_speed_down
-            show_name: false
-            tap_action:
-              action: call-service
-              service: script.toggle_fan_speed_down
-          - type: button
-            entity: script.toggle_fan_oscil_horizontal
-            show_name: false
-            tap_action:
-              action: call-service
-              service: script.toggle_fan_oscil_horizontal
-          - type: button
-            entity: script.toggle_fan_oscil_vertical
-            show_name: false
-            tap_action:
-              action: call-service
-              service: script.toggle_fan_oscil_vertical
-
-
-  - type: vertical-stack
+  - type: grid
     cards:
-    - type: entities
-      title: Room Vacuum
-      show_header_toggle: false
-      entities:
-        - vacuum.dave
-        - sensor.dave_battery_level
-        - binary_sensor.dave_mop_attachment
-        - select.dave_mode
-        - select.dave_water_usage
-        - number.dave_speaker_volume
-        - sensor.dave_events
+      - type: heading
+        heading: Closet
+        icon: mdi:hanger
+        badges:
+          - type: entity
+            entity: binary_sensor.closet_door
+            tap_action:
+              action: more-info
+          - type: entity
+            entity: sensor.closet_temperature
+            tap_action:
+              action: more-info
+          - type: entity
+            entity: sensor.closet_humidity
+            tap_action:
+              action: more-info
+      - type: tile
+        vertical: true
+        entity: switch.closet_light
+      - type: tile
+        entity: sensor.closet_door_battery
+      - type: tile
+        entity: sensor.closet_temperature_battery
 
-    - type: entities
-      title: Room Spot Vacuum
-      show_header_toggle: false
-      entities:
-        - input_boolean.dave_spot_cleaning_target_hallway
-        - input_boolean.dave_spot_cleaning_target_kitchen
-        - input_boolean.dave_spot_cleaning_target_bathroom
-        - input_boolean.dave_spot_cleaning_target_workspace
-        - input_boolean.dave_spot_cleaning_target_living_room
-        - input_boolean.dave_spot_cleaning_target_bedroom
-        - input_select.dave_spot_cleaning_iterations
-        - script.dave_spot_cleaning
+  - type: grid
+    cards:
+      - type: heading
+        heading: Room AC
+        icon: mdi:air-filter
+      - type: tile
+        entity: switch.room_ac_auto
+        icon: mdi:thermometer-auto
+      - type: tile
+        entity: switch.room_ac_cool
+        icon: mdi:snowflake
+      - type: tile
+        entity: switch.room_ac_heat
+        icon: mdi:fire
+      - type: tile
+        entity: switch.room_ac_dry
+        icon: mdi:water
+      - type: heading
+        heading: Room Fan
+        icon: mdi:fan
+      - type: tile
+        vertical: true
+        entity: script.toggle_fan_power
+        tap_action:
+          action: call-service
+          service: script.toggle_fan_power
+      - type: tile
+        entity: script.toggle_fan_speed_up
+        tap_action:
+          action: call-service
+          service: script.toggle_fan_speed_up
+      - type: tile
+        entity: script.toggle_fan_speed_down
+        tap_action:
+          action: call-service
+          service: script.toggle_fan_speed_down
+      - type: tile
+        entity: script.toggle_fan_oscil_horizontal
+        tap_action:
+          action: call-service
+          service: script.toggle_fan_oscil_horizontal
+      - type: tile
+        entity: script.toggle_fan_oscil_vertical
+        tap_action:
+          action: call-service
+          service: script.toggle_fan_oscil_vertical
 
-
-  - type: entities
-    title: Room Sensors
-    entities:
-      - sensor.room_temperature
-      - sensor.room_humidity
-      - sensor.room_dew_point
-      - sensor.room_carbon_dioxide
+  - type: grid
+    cards:
+      - type: heading
+        heading: Room Vacuum
+        icon: mdi:robot-vacuum
+        badges:
+          - type: entity
+            entity: sensor.dave_battery_level
+            tap_action:
+              action: more-info
+          - type: entity
+            entity: binary_sensor.dave_mop_attachment
+            tap_action:
+              action: more-info
+          - type: entity
+            entity: sensor.dave_events
+            tap_action:
+              action: more-info
+      - type: tile
+        entity: vacuum.dave
+        features:
+          - type: "vacuum-commands"
+            commands:
+              - start_pause
+              - stop
+              - locate
+              - return_home
+      - type: tile
+        entity: select.dave_mode
+      - type: tile
+        entity: select.dave_water_usage
+      - type: tile
+        entity: number.dave_speaker_volume
+      - type: heading
+        heading: Spot Vacuum
+        heading_style: subtitle
+      - type: tile
+        entity: input_boolean.dave_spot_cleaning_target_hallway
+      - type: tile
+        entity: input_boolean.dave_spot_cleaning_target_kitchen
+      - type: tile
+        entity: input_boolean.dave_spot_cleaning_target_bathroom
+      - type: tile
+        entity: input_boolean.dave_spot_cleaning_target_workspace
+      - type: tile
+        entity: input_boolean.dave_spot_cleaning_target_living_room
+      - type: tile
+        entity: input_boolean.dave_spot_cleaning_target_bedroom
+      - type: tile
+        name: Iterations
+        entity: input_select.dave_spot_cleaning_iterations
+      - type: tile
+        name: Start Spot Cleaning
+        entity: script.dave_spot_cleaning
