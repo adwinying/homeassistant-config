@@ -1,0 +1,6 @@
+views:
+  - title: Zigbee2MQTT
+    type: panel
+    cards:
+      - type: iframe
+        url: "https://zigbee2mqtt.iadw.in"

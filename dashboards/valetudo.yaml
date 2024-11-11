@@ -1,0 +1,6 @@
+views:
+  - title: Valetudo
+    type: panel
+    cards:
+      - type: iframe
+        url: "https://valetudo.iadw.in"

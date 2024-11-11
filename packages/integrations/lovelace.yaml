@@ -11,3 +11,15 @@ lovelace:
       title: Map
       icon: mdi:tooltip-account
       filename: dashboards/map.yaml
+
+    lovelace-zigbee:
+      mode: yaml
+      title: Zigbee2MQTT
+      icon: mdi:bee
+      filename: dashboards/zigbee.yaml
+
+    lovelace-valetudo:
+      mode: yaml
+      title: Valetudo
+      icon: mdi:robot-vacuum
+      filename: dashboards/valetudo.yaml
