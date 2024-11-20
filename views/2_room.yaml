@@ -218,6 +218,9 @@ sections:
       - type: tile
         entity: switch.room_ac_dry
         icon: mdi:water
+
+  - type: grid
+    cards:
       - type: heading
         heading: Room Fan
         icon: mdi:fan
@@ -281,24 +284,6 @@ sections:
         entity: select.dave_water_usage
       - type: tile
         entity: number.dave_speaker_volume
-      - type: heading
-        heading: Spot Vacuum
-        heading_style: subtitle
       - type: tile
-        entity: input_boolean.dave_spot_cleaning_target_hallway
-      - type: tile
-        entity: input_boolean.dave_spot_cleaning_target_kitchen
-      - type: tile
-        entity: input_boolean.dave_spot_cleaning_target_bathroom
-      - type: tile
-        entity: input_boolean.dave_spot_cleaning_target_workspace
-      - type: tile
-        entity: input_boolean.dave_spot_cleaning_target_living_room
-      - type: tile
-        entity: input_boolean.dave_spot_cleaning_target_bedroom
-      - type: tile
-        name: Iterations
-        entity: input_select.dave_spot_cleaning_iterations
-      - type: tile
-        name: Start Spot Cleaning
+        name: Spot Cleaning
         entity: script.dave_spot_cleaning

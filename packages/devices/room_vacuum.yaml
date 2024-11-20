@@ -115,74 +115,49 @@ mqtt:
       payload_not_available: lost
 
 
-#
-# Spot Cleaning
-#
-input_boolean:
-  dave_spot_cleaning_target_hallway:
-    name: Hallway
-    icon: mdi:transit-connection
-  dave_spot_cleaning_target_kitchen:
-    name: Kitchen
-    icon: mdi:fridge
-  dave_spot_cleaning_target_bathroom:
-    name: Bathroom
-    icon: mdi:shower
-  dave_spot_cleaning_target_workspace:
-    name: Workspace
-    icon: mdi:desk
-  dave_spot_cleaning_target_living_room:
-    name: Living Room
-    icon: mdi:sofa
-  dave_spot_cleaning_target_bedroom:
-    name: Bedroom
-    icon: mdi:bed-double
-
-homeassistant:
-  customize:
-    input_boolean.dave_spot_cleaning_target_hallway:
-      room_id: 3
-    input_boolean.dave_spot_cleaning_target_kitchen:
-      room_id: 2
-    input_boolean.dave_spot_cleaning_target_bathroom:
-      room_id: 1
-    input_boolean.dave_spot_cleaning_target_workspace:
-      room_id: 6
-    input_boolean.dave_spot_cleaning_target_living_room:
-      room_id: 7
-    input_boolean.dave_spot_cleaning_target_bedroom:
-      room_id: 5
-
-group:
-  dave_spot_cleaning_targets:
-    name: Dave Spot Cleaning Targets
-    entities:
-      - input_boolean.dave_spot_cleaning_target_hallway
-      - input_boolean.dave_spot_cleaning_target_kitchen
-      - input_boolean.dave_spot_cleaning_target_bathroom
-      - input_boolean.dave_spot_cleaning_target_workspace
-      - input_boolean.dave_spot_cleaning_target_living_room
-      - input_boolean.dave_spot_cleaning_target_bedroom
-
-input_select:
-  dave_spot_cleaning_iterations:
-    name: Dave Spot Cleaning Iterations
-    icon: mdi:repeat-variant
-    options:
-      - 1
-      - 2
-      - 3
-      - 4
-
 script:
   dave_spot_cleaning:
     icon: mdi:play-box
     alias: Dave Start Spot Cleaning
+    fields:
+      targets:
+        name: Cleaning Targets
+        required: true
+        selector:
+          select:
+            multiple: true
+            custom_value: false
+            options:
+              - label: Hallway
+                value: "3"
+              - label: Kitchen
+                value: "2"
+              - label: Bathroom
+                value: "1"
+              - label: Workspace
+                value: "6"
+              - label: Living Room
+                value: "7"
+              - label: Bedroom
+                value: "5"
+      iterations:
+        name: Iterations
+        required: true
+        default: "1"
+        selector:
+          select:
+            multiple: false
+            custom_value: false
+            options:
+              - "1"
+              - "2"
+              - "3"
+              - "4"
     sequence:
       - service: mqtt.publish
         data:
           topic: valetudo/Dave/MapSegmentationCapability/clean/set
-          payload_template: '{ "segment_ids": [{{ expand("group.dave_spot_cleaning_targets") | selectattr("state","eq","on") | map(attribute="attributes.room_id") | join(",") }}], "iterations": {{ states.input_select.dave_spot_cleaning_iterations.state}} }'
+          payload_template: '{ "segment_ids": [{{ targets | join(",") }}], "iterations": {{ iterations }} }'
 
 #
 # Schedule cleaning
