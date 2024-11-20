@@ -157,7 +157,7 @@ script:
       - service: mqtt.publish
         data:
           topic: valetudo/Dave/MapSegmentationCapability/clean/set
-          payload_template: '{ "segment_ids": [{{ targets | join(",") }}], "iterations": {{ iterations }} }'
+          payload: '{ "segment_ids": [{{ targets | join(",") }}], "iterations": {{ iterations }} }'
 
 #
 # Schedule cleaning
