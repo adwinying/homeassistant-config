@@ -122,19 +122,6 @@ sections:
       - type: heading
         heading: Workspace
         icon: mdi:desk
-        badges:
-          - type: entity
-            entity: sensor.room_temperature
-            tap_action:
-              action: more-info
-          - type: entity
-            entity: sensor.room_humidity
-            tap_action:
-              action: more-info
-          - type: entity
-            entity: sensor.room_carbon_dioxide
-            tap_action:
-              action: more-info
       - type: tile
         entity: switch.workspace_light
       - type: tile
@@ -167,6 +154,19 @@ sections:
       - type: heading
         heading: Bedroom
         icon: mdi:bed-double
+        badges:
+          - type: entity
+            entity: sensor.room_temperature
+            tap_action:
+              action: more-info
+          - type: entity
+            entity: sensor.room_humidity
+            tap_action:
+              action: more-info
+          - type: entity
+            entity: sensor.room_carbon_dioxide
+            tap_action:
+              action: more-info
       - type: tile
         vertical: true
         entity: light.bedroom_lights
