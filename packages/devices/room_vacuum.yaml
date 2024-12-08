@@ -129,15 +129,15 @@ script:
             custom_value: false
             options:
               - label: Hallway
-                value: "3"
-              - label: Kitchen
-                value: "2"
-              - label: Bathroom
                 value: "1"
+              - label: Kitchen
+                value: "3"
+              - label: Bathroom
+                value: "2"
               - label: Workspace
                 value: "6"
               - label: Living Room
-                value: "7"
+                value: "4"
               - label: Bedroom
                 value: "5"
       iterations:
