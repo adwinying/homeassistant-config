@@ -9,6 +9,7 @@ mqtt:
       state_topic: zigbee2mqtt/Workspace_Button
       value_template: "{{ value_json.action }}"
       entity_category: diagnostic
+      expire_after: 1
 
 switch:
   - name: Workspace Light Group
