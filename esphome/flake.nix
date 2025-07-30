@@ -2,7 +2,7 @@
   description = "ESPHome";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs";
+    nixpkgs.url = "github:nixos/nixpkgs/203fca9a072ff0c918d0adddeb04a12f766d53c6";
     flake-utils.url = "github:numtide/flake-utils";
   };
 

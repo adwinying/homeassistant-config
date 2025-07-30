@@ -6,15 +6,12 @@
 esphome:
   name: entrance-sesame-bridge
   friendly_name: "Entrance Sesame Bridge"
-  libraries:
-      - https://github.com/homy-newfs8/libsesame3bt#0.11.0
-      - davetcc/TaskManagerIO @ ^1.4.0
+  min_version: 2025.5.0
   platformio_options:
     board_build.flash_mode: dio
     build_flags:
       - -std=gnu++17 -Wall -Wextra
       - -DMBEDTLS_DEPRECATED_REMOVED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
-      - -DTM_ENABLE_CAPTURED_LAMBDAS
       - -DCONFIG_BT_NIMBLE_MAX_CONNECTIONS=4
     build_unflags:
       - -std=gnu++11
@@ -23,8 +20,8 @@ external_components:
   - source:
       type: git
       url: https://github.com/homy-newfs8/esphome-sesame3
-      ref: v0.5.0
-    components: [ sesame_lock, sesame_ble ]
+      ref: v0.18.1
+    components: [ sesame, sesame_ble ]
 
 esp32:
   board: lolin_c3_mini
@@ -33,7 +30,8 @@ esp32:
     type: arduino
 
 ota:
-  password: ""
+  - platform: esphome
+    password: ""
 
 wifi:
   ssid: !secret wifi_ssid
@@ -58,23 +56,25 @@ captive_portal:
 
 web_server:
 
-lock:
-  - platform: sesame_lock
-    name: EntranceLock
-    id: entrance_lock
-    model: sesame_3
+sesame:
+  - id: sesame1
+    model: sesame_5_pro
     public_key: !secret lock_pubkey
     secret: !secret lock_secret
     address: !secret lock_addr
-    state_topic: esphome/Entrance_SesameBridge/lock/state
-    command_topic: esphome/Entrance_SesameBridge/lock/command
+    lock:
+      id: entrance_lock
+      name: EntranceLock
+      state_topic: esphome/Entrance_SesameBridge/lock/state
+      command_topic: esphome/Entrance_SesameBridge/lock/command
 
-  - platform: sesame_lock
-    name: EntranceBot
-    id: entrance_bot
+  - id: sesame2
     model: sesame_bot
     public_key: !secret bot_pubkey
     secret: !secret bot_secret
     address: !secret bot_addr
-    state_topic: esphome/Entrance_SesameBridge/bot/state
-    command_topic: esphome/Entrance_SesameBridge/bot/command
+    lock:
+      id: entrance_bot
+      name: EntranceBot
+      state_topic: esphome/Entrance_SesameBridge/bot/state
+      command_topic: esphome/Entrance_SesameBridge/bot/command
