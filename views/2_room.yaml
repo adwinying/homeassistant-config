@@ -145,6 +145,9 @@ sections:
         entity: light.living_room_night_light
       - type: tile
         vertical: true
+        entity: switch.living_room_lamp
+      - type: tile
+        vertical: true
         entity: media_player.living_room_tv
       - type: tile
         entity: switch.living_room_tv_plug
