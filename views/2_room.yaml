@@ -123,6 +123,9 @@ sections:
         heading: Workspace
         icon: mdi:desk
       - type: tile
+        vertical: true
+        entity: switch.workspace_lamp
+      - type: tile
         entity: switch.workspace_light
       - type: tile
         entity: switch.workspace_spotlight

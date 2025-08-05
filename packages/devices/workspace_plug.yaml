@@ -1,0 +1,40 @@
+#
+# Workspace Plug
+#
+
+mqtt:
+  switch:
+    - name: Workspace Lamp
+      icon: mdi:lightbulb
+      command_topic: cmnd/Workspace_Plug/POWER1
+      state_topic: stat/Workspace_Plug/POWER1
+      payload_on: "ON"
+      payload_off: "OFF"
+
+    - name: Workspace Spotlight
+      icon: mdi:lightbulb
+      command_topic: cmnd/Workspace_Plug/POWER2
+      state_topic: stat/Workspace_Plug/POWER2
+      payload_on: "ON"
+      payload_off: "OFF"
+
+#
+# Energy Consumption Sensors
+#
+  sensor:
+    - name: Workspace Plug Power
+      state_topic: tele/Workspace_Plug/SENSOR
+      value_template: '{{ value_json["ENERGY"]["Power"] }}'
+      unit_of_measurement: W
+    - name: Workspace Plug Energy Today
+      state_topic: tele/Workspace_Plug/SENSOR
+      value_template: '{{ value_json["ENERGY"]["Today"] }}'
+      unit_of_measurement: kWh
+    - name: Workspace Plug Energy Yesterday
+      state_topic: tele/Workspace_Plug/SENSOR
+      value_template: '{{ value_json["ENERGY"]["Yesterday"] }}'
+      unit_of_measurement: kWh
+    - name: Workspace Plug Energy Total
+      state_topic: tele/Workspace_Plug/SENSOR
+      value_template: '{{ value_json["ENERGY"]["Total"] }}'
+      unit_of_measurement: kWh
