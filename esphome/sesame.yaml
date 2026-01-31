@@ -78,3 +78,36 @@ sesame:
       name: EntranceBot
       state_topic: esphome/Entrance_SesameBridge/bot/state
       command_topic: esphome/Entrance_SesameBridge/bot/command
+
+  - id: sesame3
+    model: sesame_bot_2
+    public_key: !secret bot2_pubkey
+    secret: !secret bot2_secret
+    address: !secret bot2_addr
+    bot:
+      id: workspace_bot
+      running_sensor:
+        name: Bot2 Status
+
+button:
+  - platform: template
+    name: "Run Bot2 Script0"
+    state_topic: esphome/Entrance_Talk/script0/state
+    command_topic: esphome/Entrance_Talk/script0/command
+    on_press:
+      - lambda: |-
+          id(workspace_bot).run(0);
+  - platform: template
+    name: "Run Bot2 Script1"
+    state_topic: esphome/Entrance_Talk/script1/state
+    command_topic: esphome/Entrance_Talk/script1/command
+    on_press:
+      - lambda: |-
+          id(workspace_bot).run(1);
+  - platform: template
+    name: "Run Bot2 Script2"
+    state_topic: esphome/Entrance_Talk/script2/state
+    command_topic: esphome/Entrance_Talk/script2/command
+    on_press:
+      - lambda: |-
+          id(workspace_bot).run(2);

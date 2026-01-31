@@ -19,20 +19,55 @@ mqtt:
     retain: false
 
   button:
-    name: Entrance Auto Lock
-    availability_topic: "esphome/Entrance_SesameBridge/status"
-    payload_available: "online"
-    payload_not_available: "offline"
-    command_topic: "esphome/Entrance_SesameBridge/bot/command"
-    command_template: "{{ value }}"
-    payload_press: "OPEN"
-    qos: 1
-    retain: false
+    - name: Entrance Auto Lock
+      availability_topic: "esphome/Entrance_SesameBridge/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+      command_topic: "esphome/Entrance_SesameBridge/bot/command"
+      command_template: "{{ value }}"
+      payload_press: "OPEN"
+      qos: 1
+      retain: false
+
+    - name: Entrance Talk Script0
+      availability_topic: "esphome/Entrance_SesameBridge/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+      command_topic: "esphome/Entrance_Talk/script0/command"
+      command_template: "{{ value }}"
+      payload_press: "PRESS"
+      qos: 1
+      retain: false
+
+    - name: Entrance Talk Script1
+      availability_topic: "esphome/Entrance_SesameBridge/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+      command_topic: "esphome/Entrance_Talk/script1/command"
+      command_template: "{{ value }}"
+      payload_press: "PRESS"
+      qos: 1
+      retain: false
+
+    - name: Entrance Talk Script2
+      availability_topic: "esphome/Entrance_SesameBridge/status"
+      payload_available: "online"
+      payload_not_available: "offline"
+      command_topic: "esphome/Entrance_Talk/script2/command"
+      command_template: "{{ value }}"
+      payload_press: "PRESS"
+      qos: 1
+      retain: false
 
 script:
   open_sesame:
     alias: Open Sesame
     sequence:
+      - service: button.press
+        target:
+          entity_id: button.entrance_talk_script0
+      - delay:
+          seconds: 2
       - service: button.press
         target:
           entity_id: button.entrance_auto_lock
