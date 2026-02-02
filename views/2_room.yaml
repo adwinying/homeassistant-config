@@ -84,8 +84,6 @@ sections:
         entity: switch.kitchen_light
       - type: tile
         entity: switch.kitchen_counter
-      - type: tile
-        entity: switch.kitchen_hallway
 
   - type: grid
     cards:
@@ -124,13 +122,9 @@ sections:
         icon: mdi:desk
       - type: tile
         vertical: true
-        entity: switch.workspace_lamp
+        entity: switch.workspace_front
       - type: tile
-        entity: switch.workspace_spotlight
-      - type: tile
-        entity: light.workspace_pigeonhole
-      - type: tile
-        entity: select.workspace_pigeonhole_preset
+        entity: switch.workspace_back
 
   - type: grid
     cards:
