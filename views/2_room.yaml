@@ -78,9 +78,6 @@ sections:
             tap_action:
               action: more-info
       - type: tile
-        vertical: true
-        entity: switch.bathroom_mirror
-      - type: tile
         entity: switch.bathroom_dry
       - type: tile
         entity: switch.bathroom_wet

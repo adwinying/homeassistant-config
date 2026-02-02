@@ -1,0 +1,21 @@
+#
+# Bathroom Switch Light
+#
+
+mqtt:
+  switch:
+    - name: Bathroom Wet
+      icon: mdi:lightbulb
+      command_topic: zigbee2mqtt/Bathroom_SwitchLight/right/set
+      state_topic: zigbee2mqtt/Bathroom_SwitchLight
+      value_template: "{{ value_json.state_right }}"
+      payload_on: "ON"
+      payload_off: "OFF"
+
+    - name: Bathroom Dry
+      icon: mdi:lightbulb
+      command_topic: zigbee2mqtt/Bathroom_SwitchLight/left/set
+      state_topic: zigbee2mqtt/Bathroom_SwitchLight
+      value_template: "{{ value_json.state_left }}"
+      payload_on: "ON"
+      payload_off: "OFF"

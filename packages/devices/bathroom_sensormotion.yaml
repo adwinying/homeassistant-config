@@ -51,6 +51,3 @@ automation:
       - service: switch.turn_off
         target:
           entity_id: switch.bathroom_dry
-      - service: switch.turn_off
-        target:
-          entity_id: switch.bathroom_mirror
