@@ -25,32 +25,6 @@ sections:
   - type: grid
     cards:
       - type: heading
-        heading: Storeroom
-        icon: mdi:archive
-        badges:
-          - type: entity
-            entity: binary_sensor.storeroom_door
-            tap_action:
-              action: more-info
-          - type: entity
-            entity: sensor.storeroom_temperature
-            tap_action:
-              action: more-info
-          - type: entity
-            entity: sensor.storeroom_humidity
-            tap_action:
-              action: more-info
-      - type: tile
-        vertical: true
-        entity: switch.storeroom_light
-      - type: tile
-        entity: sensor.storeroom_door_battery
-      - type: tile
-        entity: sensor.storeroom_temperature_battery
-
-  - type: grid
-    cards:
-      - type: heading
         heading: Toilet
         icon: mdi:toilet
         badges:
