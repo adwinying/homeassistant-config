@@ -30,7 +30,7 @@ mqtt:
       device_class: battery
 
 automation:
-  - alias: Switch on Toilet Light and Ventilation when Toilet Motion is detected
+  - alias: Switch on Toilet Light when Toilet Motion is detected
     trigger:
       platform: state
       entity_id: binary_sensor.toilet_motion
@@ -40,11 +40,8 @@ automation:
       - service: switch.turn_on
         target:
           entity_id: switch.toilet_light
-      - service: switch.turn_on
-        target:
-          entity_id: switch.toilet_ventilation
 
-  - alias: Switch off Toilet Light and Ventilation when Toilet Motion is not detected
+  - alias: Switch off Toilet Light when Toilet Motion is not detected
     trigger:
       platform: state
       entity_id: binary_sensor.toilet_motion
@@ -54,6 +51,3 @@ automation:
       - service: switch.turn_off
         target:
           entity_id: switch.toilet_light
-      - service: switch.turn_off
-        target:
-          entity_id: switch.toilet_ventilation

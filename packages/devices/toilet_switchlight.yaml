@@ -6,16 +6,8 @@ mqtt:
   switch:
     - name: Toilet Light
       icon: mdi:lightbulb
-      command_topic: zigbee2mqtt/Toilet_SwitchLight/right/set
+      command_topic: zigbee2mqtt/Toilet_SwitchLight/set
       state_topic: zigbee2mqtt/Toilet_SwitchLight
-      value_template: "{{ value_json.state_right }}"
-      payload_on: "ON"
-      payload_off: "OFF"
-
-    - name: Toilet Ventilation
-      icon: mdi:hvac
-      command_topic: zigbee2mqtt/Toilet_SwitchLight/left/set
-      state_topic: zigbee2mqtt/Toilet_SwitchLight
-      value_template: "{{ value_json.state_left }}"
+      value_template: "{{ value_json.state }}"
       payload_on: "ON"
       payload_off: "OFF"

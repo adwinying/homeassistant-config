@@ -36,10 +36,6 @@ sections:
         vertical: true
         entity: switch.toilet_light
       - type: tile
-        entity: switch.toilet_ventilation
-      - type: tile
-        entity: switch.toilet_hallway
-      - type: tile
         vertical: true
         entity: switch.toilet_plug
       - type: tile
