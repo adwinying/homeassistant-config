@@ -13,12 +13,8 @@ homekit:
       - binary_sensor.toilet_motion
       - switch.toilet_plug
       - switch.toilet_light
-      - switch.toilet_ventilation
-      - switch.toilet_hallway
       # Kitchen
       - switch.kitchen_light
-      - switch.kitchen_counter
-      - switch.kitchen_hallway
       # Bathroom
       - binary_sensor.bathroom_motion
       - sensor.bathroom_temperature
@@ -28,11 +24,6 @@ homekit:
       # Workspace
       - switch.workspace_front
       - switch.workspace_back
-      # Living Room
-      - light.living_room_light
-      - light.living_room_night_light
-      - switch.living_room_lamp
-      - media_player.living_room_tv
       # Bedroom
       - light.bedroom_lights
       - switch.bedroom_lamp
@@ -64,10 +55,6 @@ homekit:
       - input_boolean.adwin_present
       - input_boolean.shiuan_present
   entity_config:
-    media_player.living_room_tv:
-      feature_list:
-        - feature: on_off
-        - feature: toggle_mute
     script.toggle_fan_power:
       name: Room Fan
     script.toggle_fan_speed:

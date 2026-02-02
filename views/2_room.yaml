@@ -100,25 +100,6 @@ sections:
   - type: grid
     cards:
       - type: heading
-        heading: Living Room
-        icon: mdi:sofa
-      - type: tile
-        vertical: true
-        entity: light.living_room_light
-      - type: tile
-        entity: light.living_room_brightness
-      - type: tile
-        entity: light.living_room_night_light
-      - type: tile
-        vertical: true
-        entity: switch.living_room_lamp
-      - type: tile
-        vertical: true
-        entity: media_player.living_room_tv
-
-  - type: grid
-    cards:
-      - type: heading
         heading: Bedroom
         icon: mdi:bed-double
         badges:
