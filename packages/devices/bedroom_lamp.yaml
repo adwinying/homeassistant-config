@@ -1,0 +1,11 @@
+#
+# Bedroom Lamp
+#
+
+mqtt:
+  switch:
+    - name: Bedroom Lamp
+      command_topic: cmnd/Bedroom_Lamp/POWER
+      state_topic: stat/Bedroom_Lamp/POWER
+      payload_on: "ON"
+      payload_off: "OFF"

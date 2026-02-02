@@ -150,8 +150,6 @@ sections:
       - type: tile
         vertical: true
         entity: media_player.living_room_tv
-      - type: tile
-        entity: switch.living_room_tv_plug
 
   - type: grid
     cards:
@@ -178,6 +176,8 @@ sections:
         entity: light.bedroom_light_inner
       - type: tile
         entity: light.bedroom_light_outer
+      - type: tile
+        entity: switch.bedroom_lamp
       - type: tile
         entity: switch.bedroom_bed
 
