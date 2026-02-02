@@ -1,0 +1,12 @@
+#
+# Bedroom Bed
+#
+
+mqtt:
+  switch:
+    - name: Bedroom Bed
+      icon: mdi:lightbulb
+      command_topic: cmnd/Bedroom_Bed/POWER
+      state_topic: stat/Bedroom_Bed/POWER
+      payload_on: "ON"
+      payload_off: "OFF"

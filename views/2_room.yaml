@@ -126,8 +126,6 @@ sections:
         vertical: true
         entity: switch.workspace_lamp
       - type: tile
-        entity: switch.workspace_light
-      - type: tile
         entity: switch.workspace_spotlight
       - type: tile
         entity: light.workspace_pigeonhole
@@ -180,6 +178,8 @@ sections:
         entity: light.bedroom_light_inner
       - type: tile
         entity: light.bedroom_light_outer
+      - type: tile
+        entity: switch.bedroom_bed
 
   - type: grid
     cards:
