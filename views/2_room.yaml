@@ -57,8 +57,6 @@ sections:
       - type: tile
         vertical: true
         entity: switch.kitchen_light
-      - type: tile
-        entity: switch.kitchen_counter
 
   - type: grid
     cards:

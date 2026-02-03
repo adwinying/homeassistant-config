@@ -12,10 +12,33 @@ mqtt:
       payload_on: "ON"
       payload_off: "OFF"
 
-    - name: Kitchen Counter
+    - name: Kitchen Back
       icon: mdi:lightbulb
       command_topic: zigbee2mqtt/Kitchen_SwitchLight/left/set
       state_topic: zigbee2mqtt/Kitchen_SwitchLight
       value_template: "{{ value_json.state_left }}"
       payload_on: "ON"
       payload_off: "OFF"
+
+automation:
+  - alias: Sync Kitchen Back and Workspace Back
+    trigger:
+      - platform: state
+        entity_id: &entities
+          - switch.kitchen_back
+          - switch.workspace_back
+        from: &states
+          - 'on'
+          - 'off'
+        to: *states
+    variables:
+      entities: *entities
+      value: "{{ trigger.to_state.state }}"
+      targets: "{{ expand(entities) | rejectattr('entity_id','eq',trigger.entity_id) | selectattr('state','!=',value) | map(attribute='entity_id') | list }}"
+    condition:
+      - condition: template
+        value_template: "{{ targets not in ([], none) }}"
+    action:
+      - service: "homeassistant.turn_{{ value }}"
+        target:
+          entity_id: "{{ targets }}"
