@@ -1,0 +1,53 @@
+#
+# Bedroom Switch Light
+#
+
+mqtt:
+  switch:
+    - name: Bedroom Back
+      icon: mdi:lightbulb
+      command_topic: zigbee2mqtt/Bedroom_SwitchLight/right/set
+      state_topic: zigbee2mqtt/Bedroom_SwitchLight
+      value_template: "{{ value_json.state_right }}"
+      payload_on: "ON"
+      payload_off: "OFF"
+
+    - name: Bedroom Front
+      icon: mdi:lightbulb
+      command_topic: zigbee2mqtt/Bedroom_SwitchLight/left/set
+      state_topic: zigbee2mqtt/Bedroom_SwitchLight
+      value_template: "{{ value_json.state_left }}"
+      payload_on: "ON"
+      payload_off: "OFF"
+
+
+switch:
+  - platform: group
+    name: Bedroom Night
+    all: true
+    entities:
+      - switch.bedroom_lamp
+      - switch.bedroom_bed
+
+automation:
+  - alias: Sync Bedroom Back and Bedroom Night
+    trigger:
+      - platform: state
+        entity_id: &entities
+          - switch.bedroom_back
+          - switch.bedroom_night
+        from: &states
+          - 'on'
+          - 'off'
+        to: *states
+    variables:
+      entities: *entities
+      value: "{{ trigger.to_state.state }}"
+      targets: "{{ expand(entities) | rejectattr('entity_id','eq',trigger.entity_id) | selectattr('state','!=',value) | map(attribute='entity_id') | list }}"
+    condition:
+      - condition: template
+        value_template: "{{ targets not in ([], none) }}"
+    action:
+      - service: "homeassistant.turn_{{ value }}"
+        target:
+          entity_id: "{{ targets }}"

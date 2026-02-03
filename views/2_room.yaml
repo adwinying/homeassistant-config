@@ -117,10 +117,6 @@ sections:
         vertical: true
         entity: light.bedroom_lights
       - type: tile
-        entity: light.bedroom_light_inner
-      - type: tile
-        entity: light.bedroom_light_outer
-      - type: tile
         entity: switch.bedroom_lamp
       - type: tile
         entity: switch.bedroom_bed
