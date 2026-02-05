@@ -34,7 +34,6 @@ automation:
     trigger:
       platform: state
       entity_id: binary_sensor.toilet_motion
-      from: "off"
       to: "on"
     action:
       - service: switch.turn_on
@@ -45,7 +44,6 @@ automation:
     trigger:
       platform: state
       entity_id: binary_sensor.toilet_motion
-      from: "on"
       to: "off"
     action:
       - service: switch.turn_off
