@@ -6,7 +6,6 @@ mqtt:
   vacuum:
     - name: Dave
       supported_features:
-        - battery
         - status
         - start
         - stop
