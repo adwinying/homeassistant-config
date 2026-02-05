@@ -147,26 +147,12 @@ sections:
   - type: grid
     cards:
       - type: heading
-        heading: Room AC
+        heading: Room Climate
         icon: mdi:air-filter
       - type: tile
-        entity: switch.room_ac_auto
-        icon: mdi:thermometer-auto
-      - type: tile
-        entity: switch.room_ac_cool
-        icon: mdi:snowflake
-      - type: tile
-        entity: switch.room_ac_heat
-        icon: mdi:fire
-      - type: tile
-        entity: switch.room_ac_dry
-        icon: mdi:water
-
-  - type: grid
-    cards:
-      - type: heading
-        heading: Room Fan
-        icon: mdi:fan
+        name: Room AC
+        vertical: true
+        entity: climate.room_ac
       - type: tile
         vertical: true
         entity: script.toggle_fan_power

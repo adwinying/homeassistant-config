@@ -39,10 +39,7 @@ homekit:
       - sensor.room_humidity
       - sensor.room_carbon_dioxide
       # Room AC
-      - switch.room_ac_auto
-      - switch.room_ac_cool
-      - switch.room_ac_heat
-      - switch.room_ac_dry
+      - climate.room_ac
       # Room Fan
       - script.toggle_fan_power
       - script.toggle_fan_speed_up
