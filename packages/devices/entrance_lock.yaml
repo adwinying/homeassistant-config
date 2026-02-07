@@ -23,9 +23,9 @@ mqtt:
       availability_topic: "esphome/Entrance_SesameBridge/status"
       payload_available: "online"
       payload_not_available: "offline"
-      command_topic: "esphome/Entrance_SesameBridge/bot/command"
+      command_topic: "esphome/Entrance_Talk/script1/command"
       command_template: "{{ value }}"
-      payload_press: "OPEN"
+      payload_press: "PRESS"
       qos: 1
       retain: false
 
@@ -65,12 +65,7 @@ script:
     sequence:
       - service: button.press
         target:
-          entity_id: button.entrance_talk_script0
-      - delay:
-          seconds: 2
-      - service: button.press
-        target:
-          entity_id: button.entrance_auto_lock
+          entity_id: button.entrance_talk_script1
       - delay:
           seconds: 20
       - service: lock.unlock
