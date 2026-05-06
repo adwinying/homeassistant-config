@@ -41,8 +41,6 @@ sections:
       - type: tile
         entity: sensor.toilet_plug_energy
       - type: tile
-        entity: sensor.toilet_plug_power
-      - type: tile
         entity: sensor.toilet_motion_battery
 
   - type: grid
@@ -116,6 +114,15 @@ sections:
         entity: switch.bedroom_lamp
       - type: tile
         entity: switch.bedroom_bed
+      - type: tile
+        vertical: true
+        entity: cover.bedroom_curtain
+      - type: tile
+        entity: sensor.bedroom_curtain_battery
+      - type: tile
+        entity: sensor.bedroom_curtain_illuminance
+      - type: tile
+        entity: sensor.bedroom_curtain_temperature
 
   - type: grid
     cards:

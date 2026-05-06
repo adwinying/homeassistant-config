@@ -1,0 +1,58 @@
+#
+# Bedroom Curtain
+#
+
+mqtt:
+  cover:
+    - name: Bedroom Curtain
+      availability:
+        - topic: zigbee2mqtt/bridge/state
+          value_template: "{{ value_json.state }}"
+      payload_available: "online"
+      payload_not_available: "offline"
+      command_topic: zigbee2mqtt/Bedroom_Curtain/set
+      payload_open: "OPEN"
+      payload_close: "CLOSE"
+      payload_stop: "STOP"
+      state_topic: zigbee2mqtt/Bedroom_Curtain
+      state_closing: closing
+      state_opening: opening
+      state_stopped: stopped
+      value_template: "{{ value_json.motor_state }}"
+      position_topic: zigbee2mqtt/Bedroom_Curtain
+      position_template: "{{ value_json.position }}"
+      position_open: 100
+      position_closed: 0
+      set_position_topic: zigbee2mqtt/Bedroom_Curtain/set
+      set_position_template: '{ "position": {{ position }} }'
+
+  sensor:
+    - name: Bedroom Curtain Temperature
+      device_class: temperature
+      availability:
+        - topic: zigbee2mqtt/bridge/state
+          value_template: "{{ value_json.state }}"
+      state_class: measurement
+      state_topic: zigbee2mqtt/Bedroom_Curtain
+      unit_of_measurement: °C
+      value_template: "{{ value_json.device_temperature }}"
+
+    - name: Bedroom Curtain Illuminance
+      device_class: illuminance
+      availability:
+        - topic: zigbee2mqtt/bridge/state
+          value_template: "{{ value_json.state }}"
+      state_class: measurement
+      state_topic: zigbee2mqtt/Bedroom_Curtain
+      unit_of_measurement: lx
+      value_template: "{{ value_json.illuminance }}"
+
+    - name: Bedroom Curtain Battery
+      device_class: battery
+      availability:
+        - topic: zigbee2mqtt/bridge/state
+          value_template: "{{ value_json.state }}"
+      state_class: measurement
+      state_topic: zigbee2mqtt/Bedroom_Curtain
+      unit_of_measurement: "%"
+      value_template: "{{ value_json.battery }}"

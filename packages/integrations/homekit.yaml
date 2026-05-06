@@ -28,6 +28,8 @@ homekit:
       - light.bedroom_lights
       - switch.bedroom_lamp
       - switch.bedroom_bed
+      - cover.bedroom_curtain
+      - sensor.bedroom_curtain_illuminance
       # Closet
       - binary_sensor.closet_door
       - sensor.closet_temperature
