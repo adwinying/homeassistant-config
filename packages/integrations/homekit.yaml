@@ -22,6 +22,7 @@ homekit:
       - switch.bathroom_dry
       - switch.bathroom_wet
       # Workspace
+      - input_boolean.homekit_sleep
       - switch.workspace_front
       - switch.workspace_back
       # Bedroom

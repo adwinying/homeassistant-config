@@ -1,0 +1,41 @@
+#
+# Bedroom Button
+#
+
+mqtt:
+  sensor:
+    - name: Bedroom Button Action
+      icon: mdi:gesture-double-tap
+      state_topic: zigbee2mqtt/Bedroom_Button
+      value_template: "{{ value_json.action }}"
+      entity_category: diagnostic
+      expire_after: 1
+
+input_boolean:
+  homekit_sleep:
+    name: HomeKit Sleep
+    icon: mdi:sleep
+    initial: false
+
+automation:
+  - alias: Toggle Bedroom Lights when Single Bedroom Button Action is detected
+    trigger:
+      platform: mqtt
+      topic: zigbee2mqtt/Bedroom_Button
+      value_template: "{{ value_json.action | default('') }}"
+      payload: "single"
+    action:
+      - service: light.toggle
+        target:
+          entity_id: light.bedroom_lights
+
+  - alias: Trigger HomeKit Sleep when Double Bedroom Button Action is detected
+    trigger:
+      platform: mqtt
+      topic: zigbee2mqtt/Bedroom_Button
+      value_template: "{{ value_json.action | default('') }}"
+      payload: "double"
+    action:
+      - service: input_boolean.turn_on
+        target:
+          entity_id: input_boolean.homekit_sleep
