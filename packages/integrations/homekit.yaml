@@ -10,7 +10,7 @@ homekit:
       - button.entrance_auto_lock
       - script.open_sesame
       # Toilet
-      - binary_sensor.toilet_motion
+      - binary_sensor.toilet_presence
       - switch.toilet_plug
       - switch.toilet_light
       # Kitchen

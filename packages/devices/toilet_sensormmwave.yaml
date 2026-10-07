@@ -1,0 +1,32 @@
+#
+# Toilet Sensor mmWave
+#
+
+mqtt:
+  binary_sensor:
+    - name: Toilet Presence
+      state_topic: stat/Toilet_MmwaveSensor/PRESENCE
+      payload_on: "1"
+      payload_off: "0"
+      device_class: occupancy
+
+automation:
+  - alias: Switch on Toilet Light when Toilet Presence is detected
+    trigger:
+      platform: state
+      entity_id: binary_sensor.toilet_presence
+      to: "on"
+    action:
+      - service: switch.turn_on
+        target:
+          entity_id: switch.toilet_light
+
+  - alias: Switch off Toilet Light when Toilet Presence is not detected
+    trigger:
+      platform: state
+      entity_id: binary_sensor.toilet_presence
+      to: "off"
+    action:
+      - service: switch.turn_off
+        target:
+          entity_id: switch.toilet_light

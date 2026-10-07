@@ -29,7 +29,7 @@ sections:
         icon: mdi:toilet
         badges:
           - type: entity
-            entity: binary_sensor.toilet_motion
+            entity: binary_sensor.toilet_presence
             tap_action:
               action: more-info
       - type: tile
@@ -40,8 +40,6 @@ sections:
         entity: switch.toilet_plug
       - type: tile
         entity: sensor.toilet_plug_energy
-      - type: tile
-        entity: sensor.toilet_motion_battery
 
   - type: grid
     cards:
