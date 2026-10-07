@@ -5,7 +5,7 @@
 mqtt:
   binary_sensor:
     - name: Workspace Presence
-      state_topic: stat/Workspace_MmwaveSensor/PRESENCE
-      payload_on: "1"
-      payload_off: "0"
+      state_topic: stat/Workspace_MmwaveSensor/POWER
+      payload_on: "ON"
+      payload_off: "OFF"
       device_class: occupancy
