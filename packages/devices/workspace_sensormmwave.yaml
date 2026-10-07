@@ -1,0 +1,11 @@
+#
+# Workspace Sensor mmWave
+#
+
+mqtt:
+  binary_sensor:
+    - name: Workspace Presence
+      state_topic: stat/Workspace_MmwaveSensor/PRESENCE
+      payload_on: "1"
+      payload_off: "0"
+      device_class: occupancy
