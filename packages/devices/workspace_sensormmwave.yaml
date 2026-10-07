@@ -8,4 +8,4 @@ mqtt:
       state_topic: stat/Workspace_MmwaveSensor/POWER
       payload_on: "ON"
       payload_off: "OFF"
-      device_class: occupancy
+      device_class: motion

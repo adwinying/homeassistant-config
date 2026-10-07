@@ -55,6 +55,11 @@ sections:
       - type: heading
         heading: Workspace
         icon: mdi:desk
+        badges:
+          - type: entity
+            entity: binary_sensor.workspace_presence
+            tap_action:
+              action: more-info
       - type: tile
         vertical: true
         entity: switch.workspace_front
