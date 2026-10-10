@@ -157,22 +157,3 @@ script:
         data:
           topic: valetudo/Dave/MapSegmentationCapability/clean/set
           payload: '{ "segment_ids": [{{ targets | join(",") }}], "iterations": {{ iterations }} }'
-
-#
-# Schedule cleaning
-#
-automation:
-  - alias: Start vacuum at 9:30AM eveery Monday, Wednesday, Friday
-    trigger:
-      platform: time
-      at: "09:30:00"
-    condition:
-      condition: time
-      weekday:
-        - mon
-        - wed
-        - fri
-    action:
-      - service: vacuum.start
-        data:
-          entity_id: vacuum.dave
