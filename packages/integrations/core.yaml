@@ -2,14 +2,6 @@
 # Core Integrations
 #
 
-homeassistant:
-  name: Home
-  unit_system: metric
-  time_zone: !secret home_timezone
-  latitude: !secret home_latitude
-  longitude: !secret home_longitude
-  elevation: 0
-
 # Enables support for tracking state changes over time
 history:
 
