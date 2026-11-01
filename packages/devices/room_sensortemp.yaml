@@ -48,31 +48,6 @@ input_boolean:
     icon: mdi:account
 
 automation:
-  - alias: Notify Adwin if humidity is low
-    trigger:
-      - platform: state
-        entity_id: input_boolean.adwin_present
-        from: "off"
-        to: "on"
-      - platform: time_pattern
-        minutes: "/30"
-    condition:
-      - condition: time
-        after: "09:00:00"
-        before: "23:59:59"
-      - condition: state
-        entity_id: input_boolean.adwin_present
-        state: "on"
-      - condition: numeric_state
-        entity_id:
-          - sensor.room_humidity
-        below: 40
-    action:
-      - service: notify.mobile_app_iadwin
-        data:
-          title: Low Humidity
-          message: "Room humidity is now at {{ states('sensor.room_humidity') }}%"
-
   - alias: Notify Shiuan if humidity is low
     trigger:
       - platform: state
