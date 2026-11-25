@@ -68,7 +68,7 @@ automation:
           - sensor.room_humidity
         below: 40
     action:
-      - service: notify.mobile_app_sws
+      - service: notify.mobile_app_shiuans_ipon
         data:
           title: Low Humidity
           message: "Room humidity is now at {{ states('sensor.room_humidity') }}%"
